@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseList with empty message 1`] = `
+exports[`should render MoviesList with empty message 1`] = `
 <div
   className="content-container"
 >
@@ -15,12 +15,12 @@ exports[`should render ExpenseList with empty message 1`] = `
     <div
       className="show-for-desktop"
     >
-      Expense
+      Movie
     </div>
     <div
       className="show-for-desktop"
     >
-      Amount
+      rating
     </div>
   </div>
   <div
@@ -30,14 +30,14 @@ exports[`should render ExpenseList with empty message 1`] = `
       className="list-item list-item--message"
     >
       <span>
-        No expenses
+        No movies
       </span>
     </div>
   </div>
 </div>
 `;
 
-exports[`should render ExpenseList with expenses 1`] = `
+exports[`should render MoviesList with movies 1`] = `
 <div
   className="content-container"
 >
@@ -52,37 +52,37 @@ exports[`should render ExpenseList with expenses 1`] = `
     <div
       className="show-for-desktop"
     >
-      Expense
+      Movie
     </div>
     <div
       className="show-for-desktop"
     >
-      Amount
+      rating
     </div>
   </div>
   <div
     className="list-body"
   >
-    <ExpenseListItem
-      amount={195}
-      createdAt={0}
-      description="Gum"
+    <MovieListItem
+      rating={195}
+      releaseDate={0}
+      title="Gum"
       id="1"
-      note=""
+      description=""
     />
-    <ExpenseListItem
-      amount={109500}
-      createdAt={-345600000}
-      description="Rent"
+    <MovieListItem
+      rating={109500}
+      releaseDate={-345600000}
+      title="Rent"
       id="2"
-      note=""
+      description=""
     />
-    <ExpenseListItem
-      amount={4500}
-      createdAt={345600000}
-      description="Credit Card"
+    <MovieListItem
+      rating={4500}
+      releaseDate={345600000}
+      title="Credit Card"
       id="3"
-      note=""
+      description=""
     />
   </div>
 </div>

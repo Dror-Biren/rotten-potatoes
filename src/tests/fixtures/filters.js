@@ -3,15 +3,15 @@ import moment from 'moment';
 const filters = {
   text: '',
   sortBy: 'date',
-  startDate: undefined,
-  endDate: undefined
+  startYear: undefined,
+  endYear: undefined
 };
 
 const altFilters = {
   text: 'bills',
-  sortBy: 'amount',
-  startDate: moment(0),
-  endDate: moment(0).add(3, 'days')
+  sortBy: 'rating',
+  startYear: moment(0),
+  endYear: moment(0).add(3, 'days')
 };
 
 export { filters, altFilters };

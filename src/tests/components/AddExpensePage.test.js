@@ -1,22 +1,22 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { AddExpensePage } from '../../components/AddExpensePage';
-import expenses from '../fixtures/expenses';
+import { AddMoviePage } from '../../components/AddMoviePage';
+import movies from '../fixtures/movies';
 
-let startAddExpense, history, wrapper;
+let startAddMovie, history, wrapper;
 
 beforeEach(() => {
-  startAddExpense = jest.fn();
+  startAddMovie = jest.fn();
   history = { push: jest.fn() };
-  wrapper = shallow(<AddExpensePage startAddExpense={startAddExpense} history={history} />);
+  wrapper = shallow(<AddMoviePage startAddMovie={startAddMovie} history={history} />);
 });
 
-test('should render AddExpensePage correctly', () => {
+test('should render AddMoviePage correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
 test('should handle onSubmit', () => {
-  wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
+  wrapper.find('MovieForm').prop('onSubmit')(movies[1]);
   expect(history.push).toHaveBeenLastCalledWith('/');
-  expect(startAddExpense).toHaveBeenLastCalledWith(expenses[1]);
+  expect(startAddMovie).toHaveBeenLastCalledWith(movies[1]);
 });

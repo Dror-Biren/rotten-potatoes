@@ -6,22 +6,22 @@ test('should setup default filter values', () => {
   expect(state).toEqual({
     text: '',
     sortBy: 'date',
-    startDate: moment().startOf('month'),
-    endDate: moment().endOf('month')
+    startYear: moment().startOf('month'),
+    endYear: moment().endOf('month')
   });
 });
 
-test('should set sortBy to amount', () => {
+test('should set sortBy to rating', () => {
   const state = filtersReducer(undefined, { type: 'SORT_BY_AMOUNT' });
-  expect(state.sortBy).toBe('amount');
+  expect(state.sortBy).toBe('rating');
 });
 
 test('should set sortBy to date', () => {
   const currentState = {
     text: '',
-    startDate: undefined,
-    endDate: undefined,
-    sortBy: 'amount'
+    startYear: undefined,
+    endYear: undefined,
+    sortBy: 'rating'
   };
   const action = { type: 'SORT_BY_DATE' };
   const state = filtersReducer(currentState, action);
@@ -38,22 +38,22 @@ test('should set text filter', () => {
   expect(state.text).toBe(text);
 });
 
-test('should set startDate filter', () => {
-  const startDate = moment();
+test('should set startYear filter', () => {
+  const startYear = moment();
   const action = {
     type: 'SET_START_DATE',
-    startDate
+    startYear
   };
   const state = filtersReducer(undefined, action);
-  expect(state.startDate).toEqual(startDate);
+  expect(state.startYear).toEqual(startYear);
 });
 
-test('should set endDate filter', () => {
-  const endDate = moment();
+test('should set endYear filter', () => {
+  const endYear = moment();
   const action = {
     type: 'SET_END_DATE',
-    endDate
+    endYear
   };
   const state = filtersReducer(undefined, action);
-  expect(state.endDate).toEqual(endDate);
+  expect(state.endYear).toEqual(endYear);
 });

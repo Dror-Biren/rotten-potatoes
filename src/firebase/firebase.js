@@ -6,64 +6,67 @@ const config = {
   databaseURL: process.env.FIREBASE_DATABASE_URL,
   projectId: process.env.FIREBASE_PROJECT_ID,
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId:  process.env.FIREBASE_APP_ID,
+  measurementId:  process.env.FIREBASE_MEASUREMENT_ID
 };
 
 firebase.initializeApp(config);
 
 const database = firebase.database();
+
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export { firebase, googleAuthProvider, database as default };
 
 // // child_removed
-// database.ref('expenses').on('child_removed', (snapshot) => {
+// database.ref('movies').on('child_removed', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
 // // child_changed
-// database.ref('expenses').on('child_changed', (snapshot) => {
+// database.ref('movies').on('child_changed', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
 // // child_added
-// database.ref('expenses').on('child_added', (snapshot) => {
+// database.ref('movies').on('child_added', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
-// // database.ref('expenses')
+// // database.ref('movies')
 // //   .once('value')
 // //   .then((snapshot) => {
-// //     const expenses = [];
+// //     const movies = [];
 
 // //     snapshot.forEach((childSnapshot) => {
-// //       expenses.push({
+// //       movies.push({
 // //         id: childSnapshot.key,
 // //         ...childSnapshot.val()
 // //       });
 // //     });
 
-// //     console.log(expenses);
+// //     console.log(movies);
 // //   });
 
-// // database.ref('expenses').on('value', (snapshot) => {
-// //   const expenses = [];
+// // database.ref('movies').on('value', (snapshot) => {
+// //   const movies = [];
 
 // //   snapshot.forEach((childSnapshot) => {
-// //     expenses.push({
+// //     movies.push({
 // //       id: childSnapshot.key,
 // //       ...childSnapshot.val()
 // //     });
 // //   });
 
-// //   console.log(expenses);
+// //   console.log(movies);
 // // });
 
-// database.ref('expenses').push({
-//   description: 'Rent',
-//   note: '',
-//   amount: 109500,
-//   createdAt: 976123498763
+// database.ref('movies').push({
+//   title: 'Rent',
+//   description: '',
+//   rating: 109500,
+//   releaseDate: 976123498763
 // });
 
 

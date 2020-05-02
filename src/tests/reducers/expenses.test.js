@@ -1,76 +1,76 @@
-import expensesReducer from '../../reducers/expenses';
-import expenses from '../fixtures/expenses';
+import moviesReducer from '../../reducers/movies';
+import movies from '../fixtures/movies';
 
 test('should set default state', () => {
-  const state = expensesReducer(undefined, { type: '@@INIT' });
+  const state = moviesReducer(undefined, { type: '@@INIT' });
   expect(state).toEqual([]);
 });
 
-test('should remove expense by id', () => {
+test('should remove movie by id', () => {
   const action = {
-    type: 'REMOVE_EXPENSE',
-    id: expenses[1].id
+    type: 'REMOVE_MOVIE',
+    id: movies[1].id
   };
-  const state = expensesReducer(expenses, action);
-  expect(state).toEqual([expenses[0], expenses[2]]);
+  const state = moviesReducer(movies, action);
+  expect(state).toEqual([movies[0], movies[2]]);
 });
 
-test('should not remove expenses if id not found', () => {
+test('should not remove movies if id not found', () => {
   const action = {
-    type: 'REMOVE_EXPENSE',
+    type: 'REMOVE_MOVIE',
     id: '-1'
   };
-  const state = expensesReducer(expenses, action);
-  expect(state).toEqual(expenses);
+  const state = moviesReducer(movies, action);
+  expect(state).toEqual(movies);
 });
 
-test('should add an expense', () => {
-  const expense = {
+test('should add an movie', () => {
+  const movie = {
     id: '109',
-    description: 'Laptop',
-    note: '',
-    createdAt: 20000,
-    amount: 29500
+    title: 'Laptop',
+    description: '',
+    releaseDate: 20000,
+    rating: 29500
   };
   const action = {
-    type: 'ADD_EXPENSE',
-    expense
+    type: 'ADD_MOVIE',
+    movie
   };
-  const state = expensesReducer(expenses, action);
-  expect(state).toEqual([...expenses, expense]);
+  const state = moviesReducer(movies, action);
+  expect(state).toEqual([...movies, movie]);
 });
 
-test('should edit an expense', () => {
-  const amount = 122000;
+test('should edit an movie', () => {
+  const rating = 122000;
   const action = {
-    type: 'EDIT_EXPENSE',
-    id: expenses[1].id,
+    type: 'EDIT_MOVIE',
+    id: movies[1].id,
     updates: {
-      amount
+      rating
     }
   };
-  const state = expensesReducer(expenses, action);
-  expect(state[1].amount).toBe(amount);
+  const state = moviesReducer(movies, action);
+  expect(state[1].rating).toBe(rating);
 });
 
-test('should not edit an expense if id not found', () => {
-  const amount = 122000;
+test('should not edit an movie if id not found', () => {
+  const rating = 122000;
   const action = {
-    type: 'EDIT_EXPENSE',
+    type: 'EDIT_MOVIE',
     id: '-1',
     updates: {
-      amount
+      rating
     }
   };
-  const state = expensesReducer(expenses, action);
-  expect(state).toEqual(expenses);
+  const state = moviesReducer(movies, action);
+  expect(state).toEqual(movies);
 });
 
-test('should set expenses', () => {
+test('should set movies', () => {
   const action = {
-    type: 'SET_EXPENSES',
-    expenses: [expenses[1]]
+    type: 'SET_MOVIES',
+    movies: [movies[1]]
   };
-  const state = expensesReducer(expenses, action);
-  expect(state).toEqual([expenses[1]]);
+  const state = moviesReducer(movies, action);
+  expect(state).toEqual([movies[1]]);
 });

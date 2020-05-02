@@ -1,15 +1,15 @@
-import moment from 'moment';
 
 // Filters Reducer
 
 const filtersReducerDefaultState = {
   text: '',
   sortBy: 'date',
-  startDate: moment().startOf('month'),
-  endDate: moment().endOf('month')
+  startYear: undefined,
+  endYear: undefined
 };
 
 export default (state = filtersReducerDefaultState, action) => {
+  //console.log({action})
   switch (action.type) {
     case 'SET_TEXT_FILTER':
       return {
@@ -19,22 +19,27 @@ export default (state = filtersReducerDefaultState, action) => {
     case 'SORT_BY_AMOUNT':
       return {
         ...state,
-        sortBy: 'amount'
+        sortBy: 'rating'
       };
     case 'SORT_BY_DATE':
       return {
         ...state,
         sortBy: 'date'
       };
+    case 'SORT_BY_VIEWES':
+      return {
+        ...state,
+        sortBy: 'viewes'
+      };
     case 'SET_START_DATE':
       return {
         ...state,
-        startDate: action.startDate
+        startYear: action.startYear
       };
     case 'SET_END_DATE':
       return {
         ...state,
-        endDate: action.endDate
+        endYear: action.endYear
       };
     default:
       return state;

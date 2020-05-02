@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseForm correctly 1`] = `
+exports[`should render MovieForm correctly 1`] = `
 <form
   className="form"
   onSubmit={[Function]}
@@ -9,14 +9,14 @@ exports[`should render ExpenseForm correctly 1`] = `
     autoFocus={true}
     className="text-input"
     onChange={[Function]}
-    placeholder="Description"
+    placeholder="title"
     type="text"
     value=""
   />
   <input
     className="text-input"
     onChange={[Function]}
-    placeholder="Amount"
+    placeholder="rating"
     type="text"
     value=""
   />
@@ -53,7 +53,7 @@ exports[`should render ExpenseForm correctly 1`] = `
     phrases={
       Object {
         "chooseAvailableDate": [Function],
-        "clearDate": "Clear Date",
+        "clearDate": "Clear Year",
         "closeDatePicker": "Close",
         "dateIsUnavailable": [Function],
         "enterKey": "Enter key",
@@ -79,7 +79,7 @@ exports[`should render ExpenseForm correctly 1`] = `
         "upArrowDownArrow": "up and down arrow keys",
       }
     }
-    placeholder="Date"
+    placeholder="Year"
     readOnly={false}
     renderCalendarInfo={null}
     renderDay={null}
@@ -95,20 +95,20 @@ exports[`should render ExpenseForm correctly 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a description for your movie (optional)"
     value=""
   />
   <div>
     <button
       className="button"
     >
-      Save Expense
+      Save Movie
     </button>
   </div>
 </form>
 `;
 
-exports[`should render ExpenseForm correctly with expense data 1`] = `
+exports[`should render MovieForm correctly with movie data 1`] = `
 <form
   className="form"
   onSubmit={[Function]}
@@ -117,14 +117,14 @@ exports[`should render ExpenseForm correctly with expense data 1`] = `
     autoFocus={true}
     className="text-input"
     onChange={[Function]}
-    placeholder="Description"
+    placeholder="title"
     type="text"
     value="Rent"
   />
   <input
     className="text-input"
     onChange={[Function]}
-    placeholder="Amount"
+    placeholder="rating"
     type="text"
     value="1095"
   />
@@ -161,7 +161,7 @@ exports[`should render ExpenseForm correctly with expense data 1`] = `
     phrases={
       Object {
         "chooseAvailableDate": [Function],
-        "clearDate": "Clear Date",
+        "clearDate": "Clear Year",
         "closeDatePicker": "Close",
         "dateIsUnavailable": [Function],
         "enterKey": "Enter key",
@@ -187,7 +187,7 @@ exports[`should render ExpenseForm correctly with expense data 1`] = `
         "upArrowDownArrow": "up and down arrow keys",
       }
     }
-    placeholder="Date"
+    placeholder="Year"
     readOnly={false}
     renderCalendarInfo={null}
     renderDay={null}
@@ -203,14 +203,14 @@ exports[`should render ExpenseForm correctly with expense data 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a description for your movie (optional)"
     value=""
   />
   <div>
     <button
       className="button"
     >
-      Save Expense
+      Save Movie
     </button>
   </div>
 </form>
@@ -225,14 +225,14 @@ exports[`should render error for invalid form submission 1`] = `
     autoFocus={true}
     className="text-input"
     onChange={[Function]}
-    placeholder="Description"
+    placeholder="title"
     type="text"
     value=""
   />
   <input
     className="text-input"
     onChange={[Function]}
-    placeholder="Amount"
+    placeholder="rating"
     type="text"
     value=""
   />
@@ -269,7 +269,7 @@ exports[`should render error for invalid form submission 1`] = `
     phrases={
       Object {
         "chooseAvailableDate": [Function],
-        "clearDate": "Clear Date",
+        "clearDate": "Clear Year",
         "closeDatePicker": "Close",
         "dateIsUnavailable": [Function],
         "enterKey": "Enter key",
@@ -295,7 +295,7 @@ exports[`should render error for invalid form submission 1`] = `
         "upArrowDownArrow": "up and down arrow keys",
       }
     }
-    placeholder="Date"
+    placeholder="Year"
     readOnly={false}
     renderCalendarInfo={null}
     renderDay={null}
@@ -311,14 +311,14 @@ exports[`should render error for invalid form submission 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a description for your movie (optional)"
     value=""
   />
   <div>
     <button
       className="button"
     >
-      Save Expense
+      Save Movie
     </button>
   </div>
 </form>
@@ -332,20 +332,20 @@ exports[`should render error for invalid form submission 2`] = `
   <p
     className="form__error"
   >
-    Please provide description and amount.
+    Please provide title and rating.
   </p>
   <input
     autoFocus={true}
     className="text-input"
     onChange={[Function]}
-    placeholder="Description"
+    placeholder="title"
     type="text"
     value=""
   />
   <input
     className="text-input"
     onChange={[Function]}
-    placeholder="Amount"
+    placeholder="rating"
     type="text"
     value=""
   />
@@ -382,7 +382,7 @@ exports[`should render error for invalid form submission 2`] = `
     phrases={
       Object {
         "chooseAvailableDate": [Function],
-        "clearDate": "Clear Date",
+        "clearDate": "Clear Year",
         "closeDatePicker": "Close",
         "dateIsUnavailable": [Function],
         "enterKey": "Enter key",
@@ -408,7 +408,7 @@ exports[`should render error for invalid form submission 2`] = `
         "upArrowDownArrow": "up and down arrow keys",
       }
     }
-    placeholder="Date"
+    placeholder="Year"
     readOnly={false}
     renderCalendarInfo={null}
     renderDay={null}
@@ -424,14 +424,14 @@ exports[`should render error for invalid form submission 2`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a description for your movie (optional)"
     value=""
   />
   <div>
     <button
       className="button"
     >
-      Save Expense
+      Save Movie
     </button>
   </div>
 </form>

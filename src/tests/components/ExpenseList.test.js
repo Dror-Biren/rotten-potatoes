@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ExpenseList } from '../../components/ExpenseList';
-import expenses from '../fixtures/expenses';
+import { MoviesList } from '../../components/MoviesList';
+import movies from '../fixtures/movies';
 
-test('should render ExpenseList with expenses', () => {
-  const wrapper = shallow(<ExpenseList expenses={expenses} />);
+test('should render MoviesList with movies', () => {
+  const wrapper = shallow(<MoviesList movies={movies} />);
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should render ExpenseList with empty message', () => {
-  const wrapper = shallow(<ExpenseList expenses={[]} />);
+test('should render MoviesList with empty message', () => {
+  const wrapper = shallow(<MoviesList movies={[]} />);
   expect(wrapper).toMatchSnapshot();
 });

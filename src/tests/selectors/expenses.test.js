@@ -1,58 +1,58 @@
 import moment from 'moment';
-import selectExpenses from '../../selectors/expenses';
-import expenses from '../fixtures/expenses';
+import selectExpenses from '../../selectors/movies';
+import movies from '../fixtures/movies';
 
 test('should filter by text value', () => {
   const filters = {
     text: 'e',
     sortBy: 'date',
-    startDate: undefined,
-    endDate: undefined
+    startYear: undefined,
+    endYear: undefined
   };
-  const result = selectExpenses(expenses, filters);
-  expect(result).toEqual([expenses[2], expenses[1]]);
+  const result = selectExpenses(movies, filters);
+  expect(result).toEqual([movies[2], movies[1]]);
 });
 
-test('should filter by startDate', () => {
+test('should filter by startYear', () => {
   const filters = {
     text: '',
     sortBy: 'date',
-    startDate: moment(0),
-    endDate: undefined
+    startYear: moment(0),
+    endYear: undefined
   };
-  const result = selectExpenses(expenses, filters);
-  expect(result).toEqual([expenses[2], expenses[0]]);
+  const result = selectExpenses(movies, filters);
+  expect(result).toEqual([movies[2], movies[0]]);
 });
 
-test('should filter by endDate', () => {
+test('should filter by endYear', () => {
   const filters = {
     text: '',
     sortBy: 'date',
-    startDate: undefined,
-    endDate: moment(0).add(2, 'days')
+    startYear: undefined,
+    endYear: moment(0).add(2, 'days')
   };
-  const result = selectExpenses(expenses, filters);
-  expect(result).toEqual([expenses[0], expenses[1]]);
+  const result = selectExpenses(movies, filters);
+  expect(result).toEqual([movies[0], movies[1]]);
 });
 
 test('should sort by date', () => {
   const filters = {
     text: '',
     sortBy: 'date',
-    startDate: undefined,
-    endDate: undefined
+    startYear: undefined,
+    endYear: undefined
   };
-  const result = selectExpenses(expenses, filters);
-  expect(result).toEqual([expenses[2], expenses[0], expenses[1]]);
+  const result = selectExpenses(movies, filters);
+  expect(result).toEqual([movies[2], movies[0], movies[1]]);
 });
 
-test('should sort by amount', () => {
+test('should sort by rating', () => {
   const filters = {
     text: '',
-    sortBy: 'amount',
-    startDate: undefined,
-    endDate: undefined
+    sortBy: 'rating',
+    startYear: undefined,
+    endYear: undefined
   };
-  const result = selectExpenses(expenses, filters);
-  expect(result).toEqual([expenses[1], expenses[2], expenses[0]]);
+  const result = selectExpenses(movies, filters);
+  expect(result).toEqual([movies[1], movies[2], movies[0]]);
 });
