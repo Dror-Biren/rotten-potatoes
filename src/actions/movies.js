@@ -5,100 +5,128 @@ import { uploadPoster } from "../firebase/posters";
 
 // ADD_MOVIE
 export const addMovie = (movie) => ({
-  type: 'ADD_MOVIE',
-  movie
+   type: 'ADD_MOVIE',
+   movie
 });
 
 function addMovieToDatabase(movie, dispatch) {
    return database.ref(`movies`).push(movie)
-   .then((ref) => 
-      dispatch(addMovie({
-         id: ref.key,
-         ...movie
-      }))
-   );
+      .then((ref) =>
+         dispatch(addMovie({
+            id: ref.key,
+            ...movie
+         }))
+      );
 }
 
 export const startAddMovie = (movieData = {}) => {
    return (dispatch, getState) => {
-      //const uid = getState().auth.uid;
       const {
          title = '',
          description = '',
          rating = 0,
          ratingsAmount = 0,
          releaseDate = 0,
-         genre = "unknown",
-         poster
+         genres = [],
+         poster,
+         trailerUrl = ''
       } = movieData;
-      const movie = { title, description, rating, ratingsAmount, releaseDate, genre }
 
-      if (poster) 
-         return uploadPoster(poster)
-         .then((newUrl) => {
-            //console.log({newUrl});
-            movie.posterUrl = newUrl;
-            return addMovieToDatabase(movie, dispatch);
-         })
-      else 
+      const creator = {
+         uid: getState().auth.uid,
+         time: new Date().valueOf()
+      }
+
+      const movie = { title, description, rating, ratingsAmount, releaseDate, genres, trailerUrl, creator, raters: {} }
+
+      function afterUploadPoster(newUrl) {
+         movie.posterUrl = newUrl;
          return addMovieToDatabase(movie, dispatch);
+      }
+
+      if (poster)
+         return uploadPoster(poster)
+            .then(afterUploadPoster)
+
+      return addMovieToDatabase(movie, dispatch);
    }
 }
 
 
 
 
-function editMovieInDatabase(updates, id, dispatch) {
-   return database.ref(`movies/${id}`).update(updates).then(() => {
-      dispatch(editMovie(id, updates));
-   });  
+function editMovieInDatabase(updates, id, dispatch, newRater) {
+   let firebaseUpdates = updates;
+   if (newRater) {
+      const newRaterPath = `raters/${newRater.key}`;
+      firebaseUpdates[newRaterPath] = newRater.data;
+   }
+
+   return database.ref(`movies/${id}`).update(firebaseUpdates).then(() => {
+      dispatch(editMovie(id, updates, newRater));
+   });
 }
 
 // EDIT_MOVIE
-export const editMovie = (id, updates) => ({
+export const editMovie = (id, updates, newRater) => ({
    type: 'EDIT_MOVIE',
    id,
-   updates
- });
- 
- export const startEditMovie = (id, updates, hadPosterBefore) => {
-   return (dispatch, getState) => {
-      const { poster } = updates;
-      delete updates.poster;
+   updates,
+   newRater
+});
 
-      if (poster) {
+export const startEditMovie = (id, updates) => {
+   return (dispatch, getState) => {
+      const { poster, newRatingVote } = updates;
+      delete updates.poster;
+      delete updates.newRatingVote;
+
+      const newRater = newRatingVote && {
+         key: getState().auth.uid,
+         data: {
+            rating: newRatingVote,
+            time: new Date().valueOf()
+         }
+      }
+
+      if (poster)
          return uploadPoster(poster)
-         .then((newUrl) => {
-            //console.log({newUrl});
-            updates.posterUrl = newUrl;
-            return editMovieInDatabase(updates, id, dispatch);
-         })
-      } 
-      else {
-         if (!hadPosterBefore)
-            updates.posterUrl = null;
-         return editMovieInDatabase(updates, id, dispatch);
+            .then(afterUploadPoster)
+
+      return editMovieInDatabase(updates, id, dispatch, newRater);
+
+      function afterUploadPoster(newUrl) {
+         updates.posterUrl = newUrl;
+         return editMovieInDatabase(updates, id, dispatch, newRater);
       }
    };
- };
- 
+};
 
 
+
+// UPDATE_MOVIE_RATING
+export const updateMovieRating = (movie, newRatingVote) => {
+   let { id, rating, ratingsAmount } = movie;
+   const newRatingSum = ratingsAmount * rating + newRatingVote;
+   ratingsAmount++;
+   rating = newRatingSum / ratingsAmount;
+   return startEditMovie(id, { rating, ratingsAmount, newRatingVote })
+}
 
 
 
 // REMOVE_MOVIE
 export const removeMovie = ({ id } = {}) => ({
-  type: 'REMOVE_MOVIE',
-  id
+   type: 'REMOVE_MOVIE',
+   id
 });
 
 export const startRemoveMovie = ({ id } = {}) => {
-  return (dispatch, getState) => {
-    return database.ref(`movies/${id}`).remove().then(() => {
-      dispatch(removeMovie({ id }));
-    });
-  };
+   return (dispatch, getState) => {
+      return database.ref(`movies/${id}`).remove().then(() => {
+         dispatch(removeMovie({ id }));
+      });
+   };
 };
 
 
@@ -107,25 +135,26 @@ export const startRemoveMovie = ({ id } = {}) => {
 
 // SET_MOVIES
 export const setMovies = (movies) => ({
-  type: 'SET_MOVIES',
-  movies
+   type: 'SET_MOVIES',
+   movies
 });
 
 export const startSetMovies = () => {
-  return (dispatch, getState) => {
-    return database.ref(`movies`).once('value').then((snapshot) => {
-      const movies = [];
+   return (dispatch, getState) => {
+      return database.ref(`movies`).once('value').then((snapshot) => {
+         const movies = [];
 
-      //console.log({snapshot});
-      snapshot.forEach((childSnapshot) => {
-        //console.log({childSnapshot});
-        movies.push({
-          id: childSnapshot.key,
-          ...childSnapshot.val()
-        });
+         snapshot.forEach((childSnapshot) => {
+            movies.push({
+               id: childSnapshot.key,
+               ...childSnapshot.val()
+            });
+         });
+
+         if (!movies.genres)
+            movies.genres = [];
+
+         dispatch(setMovies(movies));
       });
-
-      dispatch(setMovies(movies));
-    });
-  };
+   };
 };

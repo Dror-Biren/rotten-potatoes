@@ -8,32 +8,45 @@
 }
 
 .list-body {
+  width: 100%;
   margin-bottom: $m-size;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   @media (min-width: $desktop-breakpoint) {
     margin-bottom: $l-size;
   }
 }
 
 .list-item {
-  border: 1px solid darken($off-white, 7%);
-  border-top: none;
+  width: 300px;
   color: $dark-grey;
   display: flex;
   flex-direction: column;
   padding: $s-size;
   text-decoration: none;
-  transition: background .3s ease;
+  text-align: center;
+  transition: background 0.3s ease;
   &:hover {
     background: $off-white;
   }
   @media (min-width: $desktop-breakpoint) {
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     padding: $m-size;
   }
 }
 
+.list-item--soft-border {
+   border: 1px solid darken($off-white, 7%);
+}
+/*
+.list-Link {
+   width: 100%;
+   height: 50%;
+}
+*/
 .list-item--message {
   align-items: center;
   color: $grey;

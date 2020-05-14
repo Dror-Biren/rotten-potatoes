@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import movies from '../fixtures/movies';
-import { EditMoviePage } from '../../components/EditMoviePage';
+import { ViewMoviePage } from '../../components/ViewMoviePage';
 
 let startEditMovie, startRemoveMovie, history, wrapper;
 
@@ -10,7 +10,7 @@ beforeEach(() => {
   startRemoveMovie = jest.fn();
   history = { push: jest.fn() };
   wrapper = shallow(
-    <EditMoviePage
+    <ViewMoviePage
       startEditMovie={startEditMovie}
       startRemoveMovie={startRemoveMovie}
       history={history}
@@ -19,7 +19,7 @@ beforeEach(() => {
   );
 });
 
-test('should render EditMoviePage', () => {
+test('should render ViewMoviePage', () => {
   expect(wrapper).toMatchSnapshot();
 });
 

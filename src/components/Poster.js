@@ -1,19 +1,10 @@
 import React from 'react';
 
-const Poster = ({url}) => (
-   <div className="poster-container">
-      {
-         url ? 
-            <img
-               className="poster__custom"
-               src={url}
-            /> 
-            : 
-            <img 
-               className="poster__default"
-            />
-      }
-   </div>
+const Poster = ({ url, className }) => (
+   <img 
+      className={`poster ${className}`}
+      src={url || "/images/defaultPoster.jpg"}
+   />
 );
 
 export default Poster;

@@ -1,11 +1,13 @@
 import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
-import Poster from './Poster';
-import StarsRating from './StarsRating';
-import StarsRating2 from './StarsRating2';
 
-const posterMaxSizeInBytes = 2000000;
+
+import Poster from './Poster';
+import SelectGenres3 from './SelectGenres3';
+import { moviePramsMax } from '../appConsts';
+//import MoviePopUp from './MoviePopUp';
+//console.log(MoviePopUp)
 
 
 export default class MovieForm extends React.Component {
@@ -18,9 +20,10 @@ export default class MovieForm extends React.Component {
          description: props.movie ? props.movie.description : '',
          releaseDate: props.movie ? moment(props.movie.releaseDate) : moment(),
 
+         trailerUrl: props.movie ? props.movie.trailerUrl : '',
          posterUrl: props.movie ? props.movie.posterUrl : null,
          poster: null,
-         isPosterSelect: false,
+         genres: props.movie ? props.movie.genres : [],
 
          calendarFocused: false,
          error: ''
@@ -32,10 +35,19 @@ export default class MovieForm extends React.Component {
       this.setState(() => ({ title }));
    };
 
+   onGenresChanged = (genres) => {
+      this.setState(() => ({ genres }))
+   }
+
    onDescriptionChange = (e) => {
       const description = e.target.value;
       this.setState(() => ({ description }));
    };
+
+   onTrailerChange = (e) => {
+      const trailerUrl = e.target.value;
+      this.setState(() => ({ trailerUrl }));
+   }
 
    onDateChange = (releaseDate) => {
       if (releaseDate) {
@@ -52,10 +64,10 @@ export default class MovieForm extends React.Component {
       const poster = event.target.files[0];
 
       if (poster) {
-         if (poster.size > posterMaxSizeInBytes)
+         if (poster.size > moviePramsMax.posterBytes)
             return alert("File is too big!");
          const posterUrl = URL.createObjectURL(poster);
-         const posterObj = { poster, posterUrl, isPosterSelect: true };
+         const posterObj = { poster, posterUrl };
          this.setState(() => posterObj);
       }
    }
@@ -65,24 +77,33 @@ export default class MovieForm extends React.Component {
 
       this.setState(() => ({
          poster: null,
-         posterUrl: null,
-         isPosterSelect: false
+         posterUrl: null
       }));
    }
 
    onSubmit = (e) => {
       e.preventDefault();
 
-      if (!this.state.title)
-         return this.setState(() => ({ error: 'Please provide title.' }));
-      this.setState(() => ({ error: '' }));
-      
-      let movieData = {
-         title: this.state.title,
-         releaseDate: this.state.releaseDate.valueOf(),
-         description: this.state.description,
-         poster: this.state.isPosterSelect && this.state.poster,
+      const { title, description, poster, posterUrl, trailerUrl, genres } = this.state;
+
+      const setError = text => {
+         const errorObj = { error: text };
+         this.setState(() => errorObj);
       };
+
+      if (!title)
+         return setError('Please provide title.');
+
+      if (genres.length === 0 || genres.length > moviePramsMax.genresAmount)
+         return setError(`Please provide between 1-${moviePramsMax.genresAmount} genres.`);
+
+      setError('');
+
+      
+      const releaseDate = this.state.releaseDate.valueOf();
+      const movieData = { title, description, poster, releaseDate, trailerUrl, genres };
+      if (!posterUrl)
+         movieData.posterUrl = null;
 
       this.props.onSubmit(movieData);
    };
@@ -91,9 +112,6 @@ export default class MovieForm extends React.Component {
    render() {
       return (
          <form className="form" onSubmit={this.onSubmit}>
-
-         <StarsRating/>
-         <StarsRating2/>
 
             {
                this.state.error &&
@@ -105,13 +123,19 @@ export default class MovieForm extends React.Component {
             <input
                type="text"
                placeholder="title"
+               maxLength={moviePramsMax.titleLength}
                autoFocus
                className="text-input"
                value={this.state.title}
                onChange={this.onTitleChange}
             />
 
-            <Poster url={this.state.posterUrl}/>
+            <SelectGenres3
+               onGenresChanged={this.onGenresChanged}
+               initGenres={this.state.genres}
+            />
+
+            <Poster url={this.state.posterUrl} />
 
             <input
                type="file"
@@ -125,7 +149,7 @@ export default class MovieForm extends React.Component {
                onClick={this.onRemovePoster}
                disabled={!this.state.posterUrl}>
                Remove poster
-        </button>
+            </button>
 
 
             <SingleDatePicker
@@ -144,10 +168,20 @@ export default class MovieForm extends React.Component {
                onChange={this.onDescriptionChange}
             ></textarea>
 
+            <input
+               type="text"
+               placeholder="paste here youtube trailer url"
+               maxLength={moviePramsMax.descriptionLength}
+               autoFocus
+               className="text-input"
+               value={this.state.trailerUrl}
+               onChange={this.onTrailerChange}
+            />
+
             <div>
                <button className="button">
                   Save Movie
-        </button>
+               </button>
             </div>
 
          </form>

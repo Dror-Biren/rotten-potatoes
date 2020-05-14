@@ -17,11 +17,6 @@ export const MoviesList = (props) => {
   
   return (
   <div className="content-container">
-    <div className="list-header">
-      <div className="show-for-mobile">Movies</div>
-      <div className="show-for-desktop">Movie</div>
-      <div className="show-for-desktop">rating</div>
-    </div>
     <div className="list-body">
       { props.movies.length === 0 ? noMovies : Movies}
     </div>

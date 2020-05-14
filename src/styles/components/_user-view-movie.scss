@@ -1,0 +1,50 @@
+/*
+.user-view--poster {
+   display: inline;
+}
+*/
+
+.posterAndTrailer {
+   display: flex; 
+   flex-direction: row;
+
+   div {
+      margin-right: 30px;
+   }
+
+   @media (max-width: $desktop-breakpoint) {
+      flex-direction: column;
+      .rating {
+         margin-bottom: 30px;
+      }
+   }
+}
+
+.info {
+   h3 {
+      font-size: 20px;
+   }
+
+   p {
+      font-size: 13px;
+   }
+}
+
+.info--oneLine {
+   h3 {
+      font-size: 13px;
+      margin-right: 10px;
+   }
+
+   h3, p {
+      display: inline;
+   }
+}
+
+.info--mulLine {
+   h3 {
+      margin-bottom: -10px;
+   }
+}
+
+
