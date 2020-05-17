@@ -6,15 +6,18 @@ export const login = (uid, isAdmin) => ({
   isAdmin
 });
 
-export const startLogin = () => {
+const emptyFunc = () => {};
+export const startLogin = (callback = emptyFunc) => {
   return () => {
-    return firebase.auth().signInWithPopup(googleAuthProvider);
+    return firebase.auth().signInWithPopup(googleAuthProvider)
+    .then(callback);
   };
 };
 
 export const logout = () => ({
   type: 'LOGOUT'
 });
+
 
 export const startLogout = () => {
   console.log("log out")

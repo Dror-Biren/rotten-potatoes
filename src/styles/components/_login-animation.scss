@@ -1,0 +1,16 @@
+.animation {
+   animation: sampleanimation 3s forwards;
+   animation-timing-function: ease;
+ }
+ 
+ @keyframes sampleanimation {
+   100% {
+     font-size: 20px;
+     height: 12rem;
+     margin-top: 0;
+     width: 100%;
+     border-radius: 0px;
+     padding-top: 3.5rem;
+     letter-spacing: 5px;
+   }
+ }

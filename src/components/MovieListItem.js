@@ -9,21 +9,43 @@ const MovieListItem = (movie) => {
    //console.log(movie);
    const { id, title, releaseDate, posterUrl, genres } = movie;
 
+   let genresPairs = [];
+   for (let i=0; i<genres.length; i+=2) {
+      let genresPair = genres[i];
+      if (i < genres.length-1)
+         genresPair += ", " + genres[i+1];
+      genresPairs.push(genresPair)
+   }
    const genresJsx = (
-      <p>
-         { genres.join(", ") }
-      </p>
+      <div className="genresSummery">
+         {genresPairs.map(
+            genrePair => (
+               <p className="genreSummery">
+                  {genrePair}
+               </p>
+            )
+         )
+      }
+      </div>
    )
    
    return (
-      <div className="list-item list-item--soft-border">
+      <div className="list-item list-item--all">
          <Link className="list-item" to={`/view/${id}`}>
             <Poster url={posterUrl} />
-            <h3 className="list-item__title">{title}</h3>
-            <span className="list-item__sub-title">{moment(releaseDate).year()}</span>
+
+            <h3 className="list-item__title">
+               {title}
+            </h3>
+
+            <span className="list-item__sub-title">
+               {moment(releaseDate).year()}
+            </span>
+
             {genresJsx}
          </Link>
-         <StarsRating movie={movie} editble={true} />
+
+         <StarsRating movie={movie} editble={true} />  
       </div>
    );
 }

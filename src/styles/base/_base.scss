@@ -9,8 +9,13 @@ html {
 body {
   color: $dark-grey;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: $m-size;
+  font-size: 1.6rem;
   line-height: 1.6;
+}
+
+.app-background {
+   background: url('/images/potatoes3.jpg');
+   background-size: cover;
 }
 
 button {

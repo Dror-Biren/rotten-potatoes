@@ -39,7 +39,7 @@ export class StarsRating extends React.Component {
       //const size = document.querySelector(".StarsRating").offsetWidth * 0.9;
 
       const notRatedYet = (
-         <p>
+         <p id="notRatedYet">
             This movie doesn't have a rating yet.
             <br />
             Be the first to rate it!
@@ -47,7 +47,7 @@ export class StarsRating extends React.Component {
       );
 
       const votingCount = (
-         <p>
+         <p id="votingCount">
             by {ratingsAmount} voting
          </p>
       );

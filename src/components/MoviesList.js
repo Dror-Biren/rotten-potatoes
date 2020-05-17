@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import MovieListItem from './MovieListItem';
 import selectMovies from '../selectors/movies';
 
@@ -7,12 +8,17 @@ export const MoviesList = (props) => {
 
   const noMovies = (
     <div className="list-item list-item--message">
-      <span>No movie matches your search settings</span>
+      <span>
+         No movie matches your search settings
+      </span>
     </div>
   );
 
   const Movies = props.movies.map((movie) => 
-      <MovieListItem key={movie.id} {...movie} />
+      <MovieListItem 
+         key={movie.id} 
+         {...movie} 
+      />
   );
   
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import SelectGenres3 from './SelectGenres3';
+import SelectGenres from './SelectGenres';
 import { movieGenres, minMovieReleaseYear } from '../appConsts'
 import {
    setTextFilter,
@@ -70,7 +70,7 @@ export class MovieListFilters extends React.Component {
                </div>
 
                <div>
-                  <SelectGenres3
+                  <SelectGenres
                      onGenresChanged={this.onGenresChanged}
                      initGenres={movieGenres}
                   />

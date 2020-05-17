@@ -1,5 +1,5 @@
-import ReactStars from 'react-stars';
 import React from 'react';
+import ReactStars from 'react-stars';
 
 export default function StaticStarsRating({ rating }) {
    return (

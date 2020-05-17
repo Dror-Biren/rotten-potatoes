@@ -4,7 +4,7 @@ import { SingleDatePicker } from 'react-dates';
 
 
 import Poster from './Poster';
-import SelectGenres3 from './SelectGenres3';
+import SelectGenres from './SelectGenres';
 import { moviePramsMax } from '../appConsts';
 //import MoviePopUp from './MoviePopUp';
 //console.log(MoviePopUp)
@@ -130,7 +130,7 @@ export default class MovieForm extends React.Component {
                onChange={this.onTitleChange}
             />
 
-            <SelectGenres3
+            <SelectGenres
                onGenresChanged={this.onGenresChanged}
                initGenres={this.state.genres}
             />

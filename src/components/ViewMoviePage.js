@@ -7,11 +7,16 @@ import AdminEditMovie from './AdminEditMovie';
 
 export class ViewMoviePage extends React.Component {
    returnToMainPage = () => {
-      this.props.history.push('/');
+      this.props.history.push('/dashboard');
    };
 
    render() {
       const { movie } = this.props;
+      if(!movie) {
+         this.props.history.push('/not-found-page');
+         return <div></div>;
+      }
+
       const releaseYear = moment(movie.releaseDate).year();
 
       const adminContent = (

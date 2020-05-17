@@ -3,8 +3,8 @@
    position: absolute;
     width: 200px; 
     height: 250px;
-    margin-top: $m-size;
-    margin-bottom: $m-size;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
     margin-left: 0;
     padding: 0;
 }
@@ -25,6 +25,10 @@
    text-align: center;
 
    p {
-      margin-top: -10px;
+      margin-top: -12px;
+   }
+
+   #notRatedYet {
+      font-size: 13px;
    }
 }

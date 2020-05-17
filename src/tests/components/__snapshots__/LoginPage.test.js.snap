@@ -2,13 +2,13 @@
 
 exports[`should correctly render LoginPage 1`] = `
 <div
-  className="box-layout"
+  className="login-ui"
 >
   <div
-    className="box-layout__box"
+    className="login-ui"
   >
     <h1
-      className="box-layout__title"
+      className="login-ui__title"
     >
       Expensify
     </h1>

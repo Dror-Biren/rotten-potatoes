@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   >* {
-    margin-bottom: $m-size;
+    margin-bottom: 1.6rem;
   }
 }
 
 .form__error {
-  margin: 0 0 $m-size 0;
+  margin: 0 0 1.6rem 0;
   color: rgb(255, 72, 72);
   font-style: italic;
 }

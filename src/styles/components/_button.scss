@@ -6,16 +6,18 @@
   font-size: $font-size-large;
   font-weight: 300;
   line-height: 1;
-  padding: $s-size;
+  padding: 1.2rem;
   text-decoration: none;
 }
 
-.button--link {
-  background: none;
-}
+
 
 .button--secondary {
   background: #888;
+}
+
+.continueAsGuest {
+   background-color: rgb(48, 48, 155);
 }
 
 .goBack {
