@@ -33,7 +33,7 @@ export const startAddMovie = (movieData = {}) => {
       } = movieData;
 
       const creator = {
-         uid: getState().auth.uid,
+         uid: getState().user.uid,
          time: new Date().valueOf()
       }
 
@@ -77,14 +77,16 @@ export const editMovie = (id, updates, newRater) => ({
 
 export const startEditMovie = (id, updates) => {
    return (dispatch, getState) => {
-      const { poster, newRatingVote } = updates;
+      const { poster, newRatingVote, comment } = updates;
       delete updates.poster;
       delete updates.newRatingVote;
+      delete updates.comment;
 
       const newRater = newRatingVote && {
-         key: getState().auth.uid,
+         key: getState().user.uid,
          data: {
             rating: newRatingVote,
+            comment,
             time: new Date().valueOf()
          }
       }
@@ -105,12 +107,12 @@ export const startEditMovie = (id, updates) => {
 
 
 // UPDATE_MOVIE_RATING
-export const updateMovieRating = (movie, newRatingVote) => {
+export const updateMovieRating = (movie, newRatingVote, comment) => {
    let { id, rating, ratingsAmount } = movie;
    const newRatingSum = ratingsAmount * rating + newRatingVote;
    ratingsAmount++;
    rating = newRatingSum / ratingsAmount;
-   return startEditMovie(id, { rating, ratingsAmount, newRatingVote })
+   return startEditMovie(id, { rating, ratingsAmount, newRatingVote, comment })
 }
 
 
@@ -139,22 +141,4 @@ export const setMovies = (movies) => ({
    movies
 });
 
-export const startSetMovies = () => {
-   return (dispatch, getState) => {
-      return database.ref(`movies`).once('value').then((snapshot) => {
-         const movies = [];
 
-         snapshot.forEach((childSnapshot) => {
-            movies.push({
-               id: childSnapshot.key,
-               ...childSnapshot.val()
-            });
-         });
-
-         if (!movies.genres)
-            movies.genres = [];
-
-         dispatch(setMovies(movies));
-      });
-   };
-};

@@ -7,7 +7,7 @@ export class AddMoviePage extends React.Component {
    returnToMainPage = () => {
       this.props.history.push('/');
    };
-   
+
    onSubmit = (movie) => {
       this.props.startAddMovie(movie);
       this.props.history.push('/');
@@ -16,17 +16,19 @@ export class AddMoviePage extends React.Component {
    render() {
       return (
          <div>
-            <div className="page-header">
-               <div className="content-container">
-                  <h1 className="page-header__title">Add Movie</h1>
-               </div>
+            <div className="sub-header">
+               
+                  <h2 className="sub-header__title">
+                     Add a new movie to the site
+                  </h2>
+               
                <img
                   src="/images/goBack5.png"
-                  className="goBack"
+                  className="button--go-back"
                   onClick={this.returnToMainPage}>
                </img>
             </div>
-            <div className="content-container">
+            <div className="page-margin">
                <MovieForm
                   onSubmit={this.onSubmit}
                />

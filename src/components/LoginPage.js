@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { history } from '../routers/AppRouter';
 import { Redirect } from 'react-router-dom';
 
-import { startLogin } from '../actions/auth';
+import { startLogin } from '../actions/user';
+import ThemeSwitch from './ThemeSwitch';
 import store from '../store/configureStore';
 
 
@@ -11,29 +12,36 @@ const goToDashboardPage = () => {
    history.push('/dashboard')
 }
 
+const authStatuses = {
+   pending: 0,
+   isAuth: 1,
+   notAuth: 2
+}
+
 export class LoginPage extends React.Component {
    constructor(props) {
       super(props);
 
       this.state = {
-         classNames: "",
+         containerAnimationClass: "",
+         titleAnimationClass: "",
          animationStarted: false,
-         authenticated: false
+         authStatus: authStatuses.pending
       };
    }
 
    componentDidMount() {
       setTimeout(() => {
-         const state = store.getState();
-         console.log({ state });
-         if (state.auth.uid)
-            this.setState({authenticated: true});
-      }, 200) 
+         const { uid } = store.getState().user;
+         const authStatus = uid ? authStatuses.isAuth : authStatuses.notAuth;
+         this.setState({ authStatus });
+      }, 200)
    }
 
    shiftPageAnimation = () => {
       this.setState({
-         classNames: "animation",
+         containerAnimationClass: "containerAnimation",
+         titleAnimationClass: "titleAnimation",
          animationStarted: true
       });
    };
@@ -43,11 +51,21 @@ export class LoginPage extends React.Component {
    }
 
    render() {
-      if (this.state.authenticated)
-         return <Redirect to="/dashboard" />
+      switch (this.state.authStatus) {
+         case authStatuses.notAuth:
+            return this.normalRender();
 
+         case authStatuses.isAuth:
+            return <Redirect to="/dashboard" />;
+
+         case authStatuses.pending:
+            return <div></div>;
+      }
+   }
+
+   normalRender() {
       const title = (
-         <h1 className="login-ui__title">
+         <h1 className={`login__title ${this.state.titleAnimationClass}`}>
             Rotten
             &#10;
             Potatoes
@@ -55,15 +73,21 @@ export class LoginPage extends React.Component {
       )
 
       const subTitle = (
-         <p>
-            We rate movies. Join us!
+         <p className="login__subtitle">
+            We rate movies - join us!
          </p>
       );
 
       const loginButton = (
-         <button className="button" onClick={this.shiftPageAfterLogin}>
-            Login with Google
-         </button>
+         <div
+            className="buttonWithImg"
+            onClick={this.shiftPageAfterLogin}
+         >
+            <img src="/images/google-logo.webp" />
+            <button className="button">
+               Login with Google
+            </button>
+         </div>
       );
 
       const textBetweenButtons = (
@@ -73,33 +97,42 @@ export class LoginPage extends React.Component {
       )
 
       const continueAsGuestButton = (
-         <button className="button continueAsGuest" onClick={this.shiftPageAnimation}>
-            Continue as guest
-         </button>
+         <div
+            className="buttonWithImg"
+            onClick={this.shiftPageAnimation}
+         >
+            <img src="/images/guest10.jpg" />
+            <button className="button button--guest">
+               Continue as guest
+            </button>
+         </div>
       );
 
+      const buttons = (
+         <div className="loginButtons">
+            {loginButton}
+            {textBetweenButtons}
+            {continueAsGuestButton}
+         </div>
+      );
+
+      const disappearedDuringAnimation = (
+         !this.state.animationStarted
+         &&
+         <div>
+            {subTitle}
+            {buttons}
+            <ThemeSwitch className="loginThemeSwitch" />
+         </div>
+      );
 
       return (
          <div className="login-ui__container">
             <div
-               className={`login-ui ${this.state.classNames}`}
+               className={`login-ui ${this.state.containerAnimationClass}`}
                onAnimationEnd={goToDashboardPage}>
                {title}
-
-               {
-                  !this.state.animationStarted &&
-                  <div>
-                     {subTitle}
-                     <div className="loginButtons">
-                        {loginButton}
-                        {textBetweenButtons}
-                        {continueAsGuestButton}
-                     </div>
-                     <button className="startAnimation" onClick={this.shiftPageAnimation}>
-                        start animation
-                     </button>
-                  </div>
-               }
+               {disappearedDuringAnimation}
             </div>
          </div >
       );

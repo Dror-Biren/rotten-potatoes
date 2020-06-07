@@ -111,7 +111,7 @@ export default class MovieForm extends React.Component {
 
    render() {
       return (
-         <form className="form" onSubmit={this.onSubmit}>
+         <form className="form itemsBackground" onSubmit={this.onSubmit}>
 
             {
                this.state.error &&
@@ -164,6 +164,7 @@ export default class MovieForm extends React.Component {
             <textarea
                placeholder="Add a description for your movie (optional)"
                className="textarea"
+               maxLength={moviePramsMax.descriptionLength}
                value={this.state.description}
                onChange={this.onDescriptionChange}
             ></textarea>
@@ -171,7 +172,6 @@ export default class MovieForm extends React.Component {
             <input
                type="text"
                placeholder="paste here youtube trailer url"
-               maxLength={moviePramsMax.descriptionLength}
                autoFocus
                className="text-input"
                value={this.state.trailerUrl}

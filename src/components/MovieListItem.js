@@ -3,34 +3,33 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 import Poster from './Poster';
-import StarsRating from './StarsRating';
+import StartsRatingWithComment from './StartsRatingWithComment';
 
 const MovieListItem = (movie) => {
    //console.log(movie);
    const { id, title, releaseDate, posterUrl, genres } = movie;
 
    let genresPairs = [];
-   for (let i=0; i<genres.length; i+=2) {
+   for (let i = 0; i < genres.length; i += 2) {
       let genresPair = genres[i];
-      if (i < genres.length-1)
-         genresPair += ", " + genres[i+1];
+      if (i < genres.length - 1)
+         genresPair += ", " + genres[i + 1];
       genresPairs.push(genresPair)
    }
    const genresJsx = (
       <div className="genresSummery">
          {genresPairs.map(
-            genrePair => (
-               <p className="genreSummery">
+            (genrePair, index) => (
+               <p className="genreSummery" key={index}>
                   {genrePair}
                </p>
             )
-         )
-      }
+         )}
       </div>
    )
-   
+
    return (
-      <div className="list-item list-item--all">
+      <div className="list-item itemsBackground">
          <Link className="list-item" to={`/view/${id}`}>
             <Poster url={posterUrl} />
 
@@ -45,7 +44,7 @@ const MovieListItem = (movie) => {
             {genresJsx}
          </Link>
 
-         <StarsRating movie={movie} editble={true} />  
+         <StartsRatingWithComment movie={movie}/>
       </div>
    );
 }

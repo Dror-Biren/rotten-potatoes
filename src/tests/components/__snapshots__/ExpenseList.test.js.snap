@@ -2,7 +2,7 @@
 
 exports[`should render MoviesList with empty message 1`] = `
 <div
-  className="content-container"
+  className="page-margin"
 >
   <div
     className="list-header"
@@ -39,7 +39,7 @@ exports[`should render MoviesList with empty message 1`] = `
 
 exports[`should render MoviesList with movies 1`] = `
 <div
-  className="content-container"
+  className="page-margin"
 >
   <div
     className="list-header"

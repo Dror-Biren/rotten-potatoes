@@ -8,7 +8,7 @@ exports[`should correctly render LoginPage 1`] = `
     className="login-ui"
   >
     <h1
-      className="login-ui__title"
+      className="login__title"
     >
       Expensify
     </h1>

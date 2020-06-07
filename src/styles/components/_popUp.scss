@@ -1,0 +1,92 @@
+@keyframes modalFade {
+   from {
+      background-color: rgb(148, 197, 199);
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+ }
+
+.modal {
+   animation-name: modalFade;
+   animation-duration: .6s;
+   padding: 20px;
+
+   text-align: center;
+   background-color: var(--popup-background);
+   color: var(--font-color);
+   //border-radius: 10%;
+   //border: 5px solid red;
+
+   textarea {
+      margin-top: 20px;
+      width: 400px;
+      height: 150px;
+      font-size: 15px;
+      color: var(--font-color);
+    }
+ }
+
+ .bottom-border {
+   border-bottom: 1px solid gray;
+ }
+
+ .modal > .popUpHeader {
+   @extend .bottom-border;
+   width: 100%;
+   font-size: 27px;
+   padding: 15px;
+ }
+
+ .modal > .content {
+   width: 100%;
+   padding: 10px 5px;
+   font-size: 16px;
+ }
+
+ .modal > .actions {
+   width: 100%;
+   padding-top: 15px;
+   padding-bottom: 20px;
+   margin: auto;
+   text-align: center;
+
+   /*
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   */
+ }
+
+ .modal > .close {
+   cursor: pointer;
+   position: absolute;
+   display: block;
+   padding: 2px 5px;
+   line-height: 20px;
+   right: 10px;
+   top: 10px;
+   font-size: 24px;
+   background: rgb(226, 158, 158);
+   color: rgb(88, 88, 88);
+   border-radius: 18px;
+   border: 1.5px solid rgb(88, 88, 88);
+ }
+
+ .actions > .button--cancel {
+    margin-left: 30px;
+ }
+
+ .choseNickname {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    //display: flex;
+    //justify-content: space-around;
+
+    label {
+       margin-right: 12px;
+    }
+ }
+
+ 

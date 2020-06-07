@@ -2,28 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import SelectGenres from './SelectGenres';
-import { movieGenres, minMovieReleaseYear } from '../appConsts'
-import {
-   setTextFilter,
-   setSortBy,
-   setStartYear,
-   setEndYear,
-   setGenresfilter
-} from '../actions/filters';
+import YearsSlider from './YearsSlider';
+import { movieGenres } from '../appConsts';
+import { setTextFilter, setSortBy, setGenresfilter } from '../actions/filters';
 
 
 export class MovieListFilters extends React.Component {
-
-   updateStartYear = (e) => {
-      const year = e.target.value;
-      this.props.setStartYear(year);
-   };
-
-   updateEndYear = (e) => {
-      const year = e.target.value;
-      //console.log({year});
-      this.props.setEndYear(year);
-   };
 
    onTextChange = (e) => {
       this.props.setTextFilter(e.target.value);
@@ -39,58 +23,41 @@ export class MovieListFilters extends React.Component {
    }
 
    render() {
-      const earliestYear = '' + minMovieReleaseYear;
-      const currentYear = '' + new Date().getFullYear();
+
 
       return (
-         <div className="content-container">
+         <div className="page-margin itemsBackground filters">
             <div className="input-group">
 
-
-               <div className="input-group__item">
+               <div className="input-group__item small-sorters">
                   <input
                      type="text"
                      className="text-input"
-                     placeholder="Search movie title"
+                     placeholder="🔎  Search movie title"
                      value={this.props.filters.text}
                      onChange={this.onTextChange}
                   />
-               </div>
 
-               <div className="input-group__item">
                   <select
                      className="select"
                      value={this.props.filters.sortBy}
                      onChange={this.onSortChange}
                   >
-                     <option value="viewes">Most viewed</option>
-                     <option value="date">Most new</option>
-                     <option value="rating">Top rated</option>
+                     <option value="rating">Top rated ⭐</option>
+                     <option value="viewes">Most viewed 👀</option>
+                     <option value="date">Most new 🕥</option>
                   </select>
                </div>
 
-               <div>
-                  <SelectGenres
-                     onGenresChanged={this.onGenresChanged}
-                     initGenres={movieGenres}
-                  />
-               </div>
-
-               <div className="input-group__item">
-                  <label>from year:</label>
-                  <input type="number" min={earliestYear} max={currentYear}
-                     defaultValue={earliestYear}
-                     onChange={this.updateStartYear}>
-                  </input>
-
-                  <label>until year:</label>
-                  <input type="number" min={earliestYear} max={currentYear}
-                     defaultValue={currentYear}
-                     onChange={this.updateEndYear}>
-                  </input>
-               </div>
 
 
+               <SelectGenres
+                  onGenresChanged={this.onGenresChanged}
+                  initGenres={movieGenres}
+               />
+
+
+               <YearsSlider />
             </div>
          </div>
       );
@@ -104,9 +71,22 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
    setTextFilter: (text) => dispatch(setTextFilter(text)),
    setSortBy: (sorter) => dispatch(setSortBy(sorter)),
-   setStartYear: (year) => dispatch(setStartYear(year)),
-   setEndYear: (year) => dispatch(setEndYear(year)),
    setGenresfilter: (genres) => dispatch(setGenresfilter(genres))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieListFilters);
+
+
+/*
+<div className="input-group__item">
+                  <select
+                     className="select"
+                     value={this.props.filters.sortBy}
+                     onChange={this.onSortChange}
+                  >
+                     <option value="rating">Top rated ⭐</option>
+                     <option value="viewes">Most viewed 👀</option>
+                     <option value="date">Most new 🕥</option>
+                  </select>
+               </div>
+*/

@@ -2,56 +2,43 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { startLogin } from '../actions/auth';
-import { startLogout } from '../actions/auth';
-import { history } from '../routers/AppRouter';
+import { startLogin } from '../actions/user';
+import ThemeSwitch from './ThemeSwitch';
+import AccountButton from './AccountButton';
 
-export const Header = ({ isAuthenticated, startLogin, startLogout }) => {
-   const logOutButton = (
-      <button className="button" onClick={startLogout}>
-         Log-out
-      </button>
-   );
-
+export const Header = ({ isAuthenticated, startLogin }) => {
    const logInButton = (
-      <button className="button" onClick={startLogin}>
-         Login with Google
+      <button className="button header--button header--login" onClick={startLogin}>
+         Login
       </button>
    );
 
    return (
       <header className="header">
-         <img
-            className="header__background"
-            src="/images/potatoes.webp"
-         />
-         <div className="content-container">
-            <div className="header__content">
+         <Link className="header__title" to="/dashboard">
+            <h1>
+               Rotten Potatoes
+            </h1>
+         </Link>
 
-               <Link className="header__title" to="/dashboard">
-                  <h1>
-                     Rotten Potatoes
-                  </h1>
-               </Link>
+         <div className="inOneLine">
+            {isAuthenticated ? <AccountButton/> : logInButton}
 
-               { isAuthenticated ? logOutButton : logInButton }
+            <div className="headerThemeSwitch">
+               <ThemeSwitch />
             </div>
          </div>
+
       </header>
    );
 }
 
 const mapStateToProps = (state) => ({
-   isAuthenticated: !!state.auth.uid
- });
+   isAuthenticated: !!state.user.uid,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-   startLogin: () => dispatch(startLogin()),
-   startLogout: () => {
-      dispatch(startLogout()).then();
-      const returnToLoginPage = () => history.push('/');
-      setTimeout(returnToLoginPage, 700);
-   }
+   startLogin: () => dispatch(startLogin())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

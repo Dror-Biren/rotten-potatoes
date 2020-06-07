@@ -18,6 +18,8 @@ export default (state = moviesReducerDefaultState, action) => {
          const getEditedMovie = (movie) => {
             if (action.newRater) {
                const { key, data } = action.newRater;
+               if (!movie.raters)
+                  movie.raters = {};
                movie.raters[key] = data;
             }
             return {

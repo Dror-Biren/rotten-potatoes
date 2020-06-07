@@ -1,16 +1,39 @@
-.animation {
-   animation: sampleanimation 3s forwards;
+$animation-time: 2s;
+
+.containerAnimation {
+   animation: transformToHeader $animation-time forwards;
    animation-timing-function: ease;
  }
+
+ .titleAnimation {
+   animation: transformToHeaderFont $animation-time forwards;
+   animation-timing-function: ease;
+ }
+
+
  
- @keyframes sampleanimation {
+ @keyframes transformToHeader {
    100% {
-     font-size: 20px;
-     height: 12rem;
+     height: $header-height;
      margin-top: 0;
      width: 100%;
      border-radius: 0px;
-     padding-top: 3.5rem;
-     letter-spacing: 5px;
+     padding-top: 37px;
+     text-align: center;
    }
  }
+
+ @keyframes transformToHeaderFont {
+   100% {   
+     font-size: 40px;
+     letter-spacing: 3.5px;
+   }
+ }
+
+
+ /*
+ .containerAnimationFast {
+   animation: transformToHeader 1ms forwards;
+   animation-timing-function: ease;
+ }
+*/

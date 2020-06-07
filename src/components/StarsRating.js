@@ -2,9 +2,6 @@ import ReactStars from 'react-stars';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateMovieRating } from '../actions/movies';
-
-
 export class StarsRating extends React.Component {
 
    constructor(props) {
@@ -16,7 +13,7 @@ export class StarsRating extends React.Component {
    }
 
    onUpdateRating = (newRatingVote) => {
-      const { movie, uid, updateMovieRating } = this.props;
+      const { movie, uid, handleRatingVote } = this.props;
       
       if (!uid) {
          alert("Sorry, to rate movies you must first login ...");
@@ -28,7 +25,7 @@ export class StarsRating extends React.Component {
          return this.setState(() => ({ rating: movie.rating }));
       }
 
-      updateMovieRating(movie, newRatingVote);
+      handleRatingVote(newRatingVote);
       this.setState(() => ({ rating: undefined }))
    }
 
@@ -58,7 +55,7 @@ export class StarsRating extends React.Component {
                count={5}
                onChange={this.onUpdateRating}
                size={40}
-               edit={this.props.editble}
+               edit={true}
                value={roundRating}
                color1={'#B3B3B3'}
                color2={'#ffd700'}
@@ -74,11 +71,7 @@ export class StarsRating extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-   uid: state.auth.uid
+   uid: state.user.uid
 })
 
-const mapDispatchToProps = (dispatch, props) => ({
-   updateMovieRating: (movie, newRatingVote) => dispatch(updateMovieRating(movie, newRatingVote))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(StarsRating);
+export default connect(mapStateToProps)(StarsRating);

@@ -2,7 +2,7 @@
 
 exports[`should render MovieListFilters correctly 1`] = `
 <div
-  className="content-container"
+  className="page-margin"
 >
   <div
     className="input-group"
@@ -127,7 +127,7 @@ exports[`should render MovieListFilters correctly 1`] = `
 
 exports[`should render MovieListFilters with alt data correctly 1`] = `
 <div
-  className="content-container"
+  className="page-margin"
 >
   <div
     className="input-group"

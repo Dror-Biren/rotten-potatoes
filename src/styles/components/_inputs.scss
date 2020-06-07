@@ -1,9 +1,12 @@
+
 .text-input {
   border: 1px solid #cacccd;
+  background-color: var(--input-background);
+  color: var(--font-color);
   height: 50px;
-  font-size: $font-size-large;
+  font-size: 18px;
   font-weight: 300;
-  padding: 1.2rem;
+  padding: 12px;
 }
 
 .select {
@@ -12,5 +15,14 @@
 
 .textarea {
   @extend .text-input;
-  height: 10rem;
+  height: 160px;
+  resize: none;
 }
+
+*::placeholder {
+   color: var(--placeholder-color);
+   font-weight: 100;
+   //font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+ }
+
+ 

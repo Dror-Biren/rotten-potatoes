@@ -1,22 +1,29 @@
 import React from 'react';
-import moment from 'moment';
-import StaticStarsRating from './StaticStarsRating';
+import { connect } from 'react-redux';
 
-export default ({ reviews }) => {
-   function createReviewElement({rating, time}, key) {
-      //console.log(review);
+import StaticStarsRating from './StaticStarsRating';
+import { avatarsUrls } from './../appConsts';
+
+
+export const movieReviews = ({ reviews, allUsers }) => {
+
+   function createReviewElement({rating, time, comment}, writer, key) {
+      const writerAvatarUrl = avatarsUrls[writer.avatarIndex];
       return (
          <div className="review" key={key}>
-            <p>{moment(time).fromNow()}</p>
-
-            <StaticStarsRating rating={rating}/>
+            <div className="userSummery">
+               <img className="avatarReview" src={writerAvatarUrl} />
+               {writer.nickname}
+            </div>
+            <StaticStarsRating rating={rating} time={time}/>
+            {comment && <p>{comment}</p>}
          </div>
       );
    }
 
    let arrReviews = [];
    for (let key in reviews) {
-      const newReview = createReviewElement(reviews[key], key);
+      const newReview = createReviewElement(reviews[key], allUsers[key], key);
       arrReviews.push(newReview);
    }
 
@@ -26,3 +33,9 @@ export default ({ reviews }) => {
       </div>
    )
 }
+
+const mapStateToProps = state => ({
+   allUsers: state.allUsers
+});
+
+export default connect(mapStateToProps)(movieReviews);

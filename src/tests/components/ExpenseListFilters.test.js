@@ -63,8 +63,8 @@ test('should sort by rating', () => {
 });
 
 test('should handle date changes', () => {
-  const startYear = moment(0).add(4, 'years');
-  const endYear = moment(0).add(8, 'years');
+  const startYear = moment(0).add(4, 'yearsRange');
+  const endYear = moment(0).add(8, 'yearsRange');
   wrapper.find('DateRangePicker').prop('onDatesChange')({ startYear, endYear });
   expect(setStartYear).toHaveBeenLastCalledWith(startYear);
   expect(setEndYear).toHaveBeenLastCalledWith(endYear);

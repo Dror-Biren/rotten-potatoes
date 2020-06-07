@@ -1,48 +1,35 @@
-.list-header {
-  /*background: $off-white;*/
-  border: 1px solid darken($off-white, 7%);
-  color: $grey;
-  display: flex;
-  justify-content: space-between;
-  padding: 1.2rem 1.6rem;
-}
+
 
 .list-body {
   width: 100%;
-  margin-bottom: 1.6rem;
+  margin-bottom: 25.6px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   @media (min-width: $desktop-breakpoint) {
-    margin-bottom: 3.2rem;
+    margin-bottom: 51.2px;
   }
 }
 
 .list-item {
   width: 300px;
-  color: $dark-grey;
+  color: var(--font-color);
   display: flex;
   flex-direction: column;
-  padding: 1.2rem;
+  padding: 19.2px;
   text-decoration: none;
   text-align: center;
+  transition: all 0.5s ease;
   
   @media (min-width: $desktop-breakpoint) {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.6rem;
+    padding: 25.6px;
   }
 }
 
-.list-item--all {
-   border: 1px solid darken($off-white, 7%);
-   transition: background 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.9);
-  &:hover {
-    background: $off-white;
-  }
-}
+
 /*
 .list-Link {
    width: 100%;
@@ -51,9 +38,9 @@
 */
 .list-item--message {
   align-items: center;
-  color: $grey;
+  color: var(--soft-font-color);
   justify-content: center;
-  padding: 1.6rem;
+  padding: 25.6px;
   &:hover {
     background: none;
   }
@@ -65,14 +52,14 @@
 }
 
 .list-item__sub-title {
-  color: $grey;
-  font-size: $font-size-small;
+   color: var(--soft-font-color);
+  font-size: 22.4px;
 }
 
 .list-item__data {
-  margin: 1.2rem 0 0 0;
+  margin: 1.2px 0 0 0;
   @media (min-width: $desktop-breakpoint) {
     margin: 0;
-    padding-left: 1.2rem;
+    padding-left: 19.2px;
   }
 }

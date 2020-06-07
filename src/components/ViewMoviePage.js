@@ -12,7 +12,7 @@ export class ViewMoviePage extends React.Component {
 
    render() {
       const { movie } = this.props;
-      if(!movie) {
+      if (!movie) {
          this.props.history.push('/not-found-page');
          return <div></div>;
       }
@@ -36,19 +36,20 @@ export class ViewMoviePage extends React.Component {
 
       return (
          <div>
-            <div className="page-header">
-               <div className="content-container">
-                  <h1 className="page-header__title">
-                     {movie.title} &nbsp;&nbsp; ({releaseYear})
-                  </h1>
-               </div>
+            <div className="sub-header">
+                  <h2 className="sub-header__title">
+                     <span className="span-bold">
+                        {movie.title}
+                     </span> 
+                     &nbsp; ({releaseYear})
+                  </h2>
                <img
                   src="/images/goBack5.png"
-                  className="goBack"
+                  className="button--go-back"
                   onClick={this.returnToMainPage}>
                </img>
             </div>
-            <div className="content-container">
+            <div className="page-margin itemsBackground">
                {this.props.isAdmin ? adminContent : userContent}
             </div>
          </div>
@@ -61,7 +62,7 @@ const mapStateToProps = (state, props) => {
    const matchId = ({ id }) => id === props.match.params.id;
    return {
       movie: state.movies.find(matchId),
-      isAdmin: state.auth.isAdmin
+      isAdmin: state.user.isAdmin
    }
 };
 

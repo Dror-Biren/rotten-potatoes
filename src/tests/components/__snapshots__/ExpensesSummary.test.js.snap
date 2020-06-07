@@ -2,13 +2,13 @@
 
 exports[`should correctly render MoviesSummary with 1 movie 1`] = `
 <div
-  className="page-header"
+  className="sub-header"
 >
   <div
-    className="content-container"
+    className="page-margin"
   >
     <h1
-      className="page-header__title"
+      className="sub-header__title"
     >
       Viewing 
       <span>
@@ -22,7 +22,7 @@ exports[`should correctly render MoviesSummary with 1 movie 1`] = `
       </span>
     </h1>
     <div
-      className="page-header__actions"
+      className="button--add-movie"
     >
       <Link
         className="button"
@@ -38,13 +38,13 @@ exports[`should correctly render MoviesSummary with 1 movie 1`] = `
 
 exports[`should correctly render MoviesSummary with multiple movies 1`] = `
 <div
-  className="page-header"
+  className="sub-header"
 >
   <div
-    className="content-container"
+    className="page-margin"
   >
     <h1
-      className="page-header__title"
+      className="sub-header__title"
     >
       Viewing 
       <span>
@@ -58,7 +58,7 @@ exports[`should correctly render MoviesSummary with multiple movies 1`] = `
       </span>
     </h1>
     <div
-      className="page-header__actions"
+      className="button--add-movie"
     >
       <Link
         className="button"

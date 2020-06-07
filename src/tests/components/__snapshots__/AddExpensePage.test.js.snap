@@ -3,20 +3,20 @@
 exports[`should render AddMoviePage correctly 1`] = `
 <div>
   <div
-    className="page-header"
+    className="sub-header"
   >
     <div
-      className="content-container"
+      className="page-margin"
     >
       <h1
-        className="page-header__title"
+        className="sub-header__title"
       >
         Add Movie
       </h1>
     </div>
   </div>
   <div
-    className="content-container"
+    className="page-margin"
   >
     <MovieForm
       onSubmit={[Function]}

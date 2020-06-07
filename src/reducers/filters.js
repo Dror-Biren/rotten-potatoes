@@ -1,13 +1,12 @@
 
 // Filters Reducer
 
-import { movieGenres, minMovieReleaseYear } from '../appConsts'
+import { movieGenres, yearsRangeFilter } from '../appConsts';
 
 const filtersReducerDefaultState = {
    text: '',
-   sortBy: 'date',
-   startYear: minMovieReleaseYear,
-   endYear: new Date().getFullYear(),
+   sortBy: 'rating',
+   yearsRange: yearsRangeFilter,
    genres: movieGenres
 };
 
@@ -19,21 +18,19 @@ export default (state = filtersReducerDefaultState, action) => {
             ...state,
             text: action.text
          };
-      case 'SORT_BY':
+
+      case 'SET_SORT_BY':
          return {
             ...state,
             sortBy: action.sorter
          };
-      case 'SET_START_DATE':
+
+      case 'SET_YEARS_RANGE_FILTER':
          return {
             ...state,
-            startYear: action.startYear
-         };
-      case 'SET_END_DATE':
-         return {
-            ...state,
-            endYear: action.endYear
-         };
+            yearsRange: action.yearsRange
+         }
+
       case 'SET_GENRES_FILTER':
          return {
             ...state,
@@ -43,3 +40,21 @@ export default (state = filtersReducerDefaultState, action) => {
          return state;
    }
 };
+
+/*
+import { minMovieReleaseYear } from '../appConsts'
+
+startYear: minMovieReleaseYear,
+   endYear: new Date().getFullYear(),
+
+ case 'SET_START_DATE':
+         return {
+            ...state,
+            startYear: action.startYear
+         };
+      case 'SET_END_DATE':
+         return {
+            ...state,
+            endYear: action.endYear
+         };
+*/

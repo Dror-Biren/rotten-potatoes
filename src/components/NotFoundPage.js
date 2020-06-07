@@ -3,12 +3,12 @@ import { history } from '../routers/AppRouter';
 
 const NotFoundPage = () => (
    <div className="login-ui__container">
-      <div className="login-ui">
-         <h1 className="login-ui__title">
+      <div className="page404 login-ui">
+         <h1 className="login__title">
             404
          </h1>
 
-         <h2 className="login-ui__title">
+         <h2 className="login__title">
             Page not found
          </h2>
 

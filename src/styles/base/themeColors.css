@@ -1,0 +1,79 @@
+.bright {
+   --site-background: url('/images/potatoes4.jpg');
+
+   --header-background: rgb(65, 49, 40);
+   --header-background-hover: rgb(46, 36, 28);
+   --header-button-background: rgb(141, 135, 120);
+   --sub-header-background: rgb(177, 160, 125);
+   
+   --genres-selector-background: rgb(180, 180, 180);
+   --years-slider-background: rgb(172, 199, 121);
+   --years-slider-rail: rgb(182, 182, 182);
+
+   --add-movie-background: rgb(110, 82, 69);
+   --add-movie-symbol: rgb(204, 199, 193);
+
+   --popup-background: rgb(245, 233, 212);
+   --input-background: white;
+   --items-background: rgba(223, 220, 190, 0.94);
+   --items-background-hover: rgba(245, 244, 226, 1);
+   
+   --items-border: rgb(211, 210, 210);
+
+
+   --font-color: rgb(34, 34, 34);
+   --soft-font-color: rgb(80, 80, 80);
+   --placeholder-color: rgb(175, 175, 175);
+   --header-font: rgb(224, 230, 191);
+   --header-font-hover: rgb(221, 219, 136);
+   --header-button-font: rgb(236, 236, 224);
+   --or-text: rgb(221, 221, 221);
+   
+
+   --header-button-border: rgb(134, 124, 107);
+}
+
+
+.dark {
+   --site-background: url('/images/potatoes-dark4.png');
+
+   --header-background: rgb(34, 27, 41);
+   --header-background-hover: rgb(19, 15, 26);
+   --header-button-background: rgb(75, 90, 104);
+   --sub-header-background: rgb(61, 70, 83);
+
+   --genres-selector-background: rgb(37, 37, 37);
+   --years-slider-background: rgb(40, 87, 43);
+   --years-slider-rail: rgb(77, 76, 76);
+
+   --add-movie-background: rgb(18, 32, 58);
+   --add-movie-symbol: rgb(150, 170, 195);
+
+   --popup-background: rgb(80, 75, 69);
+   --input-background: rgb(105, 105, 114);
+   --items-background: rgba(49, 49, 49, 0.92);
+   --items-background-hover: rgba(49, 49, 49, 1);
+
+   --items-border: rgb(110, 109, 109);
+
+
+   --font-color: rgb(219, 219, 219);
+   --soft-font-color: rgb(182, 182, 182);
+   --placeholder-color: rgb(177, 177, 177);
+   --header-font: rgb(224, 230, 191);
+   --header-font-hover: rgb(221, 219, 136);
+   --header-button-font: rgb(191, 219, 236);
+   --or-text: rgb(221, 221, 221);
+   
+
+   --header-button-border: rgb(58, 63, 92);
+}
+
+
+/*
+   --header-background: rgb(160, 151, 200);
+   --header-background-hover: rgb(137, 127, 180);
+   --header-font: rgb(59, 52, 35);
+   --header-font-hover: rgb(0, 0, 0);
+*/
+

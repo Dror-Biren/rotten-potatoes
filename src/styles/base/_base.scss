@@ -1,31 +1,51 @@
+$desktop-breakpoint: 720px;
+$header-height: 120px;
+
+
 * {
   box-sizing: border-box;
+  transition: all 0.5s ease;
 }
 
-html {
-  font-size: 62.5%;
+#app, html, body {
+   height: 100%;
 }
 
 body {
-  color: $dark-grey;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
   line-height: 1.6;
 }
 
-.app-background {
-   background: url('/images/potatoes3.jpg');
+.site-background {
+   background: var(--site-background);
    background-size: cover;
+   min-height: 100%;
+}
+
+.page-margin {
+   margin-left: 10%;
+   margin-right: 5%;
+ }
+ 
+
+.itemsBackground {
+   border: 1px solid var(--items-border);
+
+  background-color: var(--items-background);
+  &:hover {
+    background-color: var(--items-background-hover);
+  }
 }
 
 button {
   cursor: pointer;
+
+  &:hover {
+     font-weight: 600;
+  }
 }
 
 button:disabled {
   cursor: default;
 }
 
-.is-active {
-  font-weight: bold;
-}

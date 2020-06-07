@@ -3,7 +3,7 @@ import moment from 'moment';
 
 
 import Poster from './Poster';
-import StarsRating from './StarsRating';
+import StartsRatingWithComment from './StartsRatingWithComment';
 import YoutubeVideo from './YoutubeVideo';
 import MovieReviews from './MovieReviews';
 
@@ -24,7 +24,7 @@ export default class UserViewMovie extends React.Component {
             <div className="posterAndTrailer">
                <div>
                   <Poster url={posterUrl} className="user-view--poster" />
-                  <StarsRating movie={this.props.movie} editble={true} />
+                  <StartsRatingWithComment movie={this.props.movie}/>
                </div>
                <YoutubeVideo url={trailerUrl} />
             </div>

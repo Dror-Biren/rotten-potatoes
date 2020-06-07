@@ -20,7 +20,8 @@ function hasValueInCommon(strings1, strings2) {
 }
 
 // Get visible movies
-export default (movies, { text, sortBy, startYear, endYear, genres }) => {
+export default (movies, { text, sortBy, yearsRange, genres }) => {
+   const [startYear, endYear] = yearsRange;
 
    function isMovieMatch(movie) {
       //console.log(movie.raters);

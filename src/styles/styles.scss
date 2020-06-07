@@ -1,11 +1,11 @@
-@import './base/settings';
 @import './base/base';
+@import './base/themeColors';
+
 @import './components/login-ui';
 @import './components/login-animation';
 @import './components/button';
 @import './components/header';
-@import './components/content-container';
-@import './components/page-header';
+@import './components/sub-header';
 @import './components/input-group';
 @import './components/inputs';
 @import './components/form';
@@ -17,4 +17,7 @@
 @import './components/user-view-movie';
 @import './components/reviews';
 @import './components/genres';
+@import './components/popUp';
+@import './components/avatar';
+@import './components/yearsSlider';
 

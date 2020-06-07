@@ -1,0 +1,24 @@
+.yearsSlider-title {
+   margin-top: 0;
+   margin-bottom: 0;
+   color: var(--font-color);
+}
+
+.MuiSlider-root {
+   min-width: 200px;
+}
+
+.MuiSlider-track {
+   color: var(--years-slider-background);
+   width: 300px;
+}
+
+.MuiSlider-rail {
+   color: var(--years-slider-rail);
+}
+
+.yearsSlider-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}

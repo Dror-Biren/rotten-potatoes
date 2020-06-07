@@ -3,20 +3,20 @@
 exports[`should render ViewMoviePage 1`] = `
 <div>
   <div
-    className="page-header"
+    className="sub-header"
   >
     <div
-      className="content-container"
+      className="page-margin"
     >
       <h1
-        className="page-header__title"
+        className="sub-header__title"
       >
         Edit Movie
       </h1>
     </div>
   </div>
   <div
-    className="content-container"
+    className="page-margin"
   >
     <MovieForm
       movie={
@@ -31,7 +31,7 @@ exports[`should render ViewMoviePage 1`] = `
       onSubmit={[Function]}
     />
     <button
-      className="button button--secondary"
+      className="button button--cancel"
       onClick={[Function]}
     >
       Remove Movie

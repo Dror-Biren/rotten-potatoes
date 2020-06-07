@@ -11,8 +11,15 @@ export class UserViewMovie extends React.Component {
    };
 
    onRemove = () => {
-      this.props.startRemoveMovie({ id: this.props.movie.id });
-      this.props.returnToMainPage();
+      const isConfirmed = confirm(
+         "Are you sure you want to delete this movie? \n" +
+         "All the information will be lost..."
+      );
+
+      if (isConfirmed) {
+         this.props.startRemoveMovie({ id: this.props.movie.id });
+         this.props.returnToMainPage();
+      }
    };
 
    render() {
@@ -23,7 +30,7 @@ export class UserViewMovie extends React.Component {
                onSubmit={this.onSubmit}
             />
             <button
-               className="button button--secondary"
+               className="button button--cancel"
                onClick={this.onRemove}>
                Remove Movie
             </button>

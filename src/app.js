@@ -1,22 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import 'react-dates/lib/css/_datepicker.css';
+
+import './styles/styles.scss';
+import 'normalize.css/normalize.css';
 
 import AppRouter from './routers/AppRouter';
 import store from './store/configureStore';
-import { startSetMovies } from './actions/movies';
-import { login, logout } from './actions/auth';
-import 'normalize.css/normalize.css';
-import './styles/styles.scss';
-import 'react-dates/lib/css/_datepicker.css';
+import fetchAppData from './actions/fetchAppData';
+import { login, logout } from './actions/user';
+import { deafultUser } from './appConsts';
 import database, { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
+import { addUser } from './actions/allUsers';
 
-//console.log("---",store.getState());
 
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
-store.dispatch(startSetMovies()).then(renderApp);
-
+store.dispatch(fetchAppData()).then(renderApp);
 
 let hasRendered = false;
 function renderApp() {
@@ -33,6 +34,7 @@ function renderApp() {
 }
 
 
+
 firebase.auth().onAuthStateChanged((user) => {
    if (user)
       dispatchLogin(user);
@@ -42,14 +44,37 @@ firebase.auth().onAuthStateChanged((user) => {
    }
 });
 
-function dispatchLogin(user) {
-   database.ref("adminsEmails").on('value', (snapshot) => {
-      let isAdmin = false;
-      snapshot.forEach((childSnapshot) => {
-         isAdmin = isAdmin || (childSnapshot.val() === user.email);
-      })
+function dispatchLogin({ uid, email }) {
+   database.ref().once('value', (snapshot) => {
+      const userPath = `users/${uid}`;
+      const userRef = snapshot.child(userPath);
+      if(!userRef.val())
+         handleNewUser(uid, userPath);
+
+      const emailsRef = snapshot.child("adminsEmails");
+      const isAdmin = isAppearsInRef(email, emailsRef);
       console.log(`login as ${isAdmin ? "admin" : "user"}`);
-      store.dispatch(login(user.uid, isAdmin));
+
+      const themeIndex = userRef.child('themeIndex').val() || 0;
+      const user = {uid, isAdmin, themeIndex};
+
+      store.dispatch(login(user));
    })
 }
+
+function handleNewUser(uid, userPath) {
+   database.ref(userPath).set(deafultUser);
+   store.dispatch(addUser(uid))   
+}
+
+
+function isAppearsInRef(value, ref) {
+   let result = false;
+   ref.forEach((childSnapshot) => {
+      result = result || (childSnapshot.val() === value);
+   })
+   return result;
+}
+
+
 
