@@ -35,7 +35,7 @@ export default (movies, { text, sortBy, yearsRange, genres }) => {
       return startYearMatch && endYearMatch && textMatch && genresMatch;
    }
 
-   function sortMovies(movie1, movie2) {
+   function sortMovies(movie1, movie2) { 
       switch (sortBy) {
          case 'viewes':
             return movie2.ratingsAmount - movie1.ratingsAmount;
