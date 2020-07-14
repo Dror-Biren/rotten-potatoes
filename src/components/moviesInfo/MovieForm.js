@@ -4,8 +4,8 @@ import { SingleDatePicker } from 'react-dates';
 
 
 import Poster from './Poster';
-import SelectGenres from './SelectGenres';
-import { moviePramsMax } from '../appConsts';
+import SelectGenres from '../filters/SelectGenres';
+import { moviePramsMax } from '../../appConsts';
 //import MoviePopUp from './MoviePopUp';
 //console.log(MoviePopUp)
 
@@ -99,7 +99,7 @@ export default class MovieForm extends React.Component {
 
       setError('');
 
-      
+
       const releaseDate = this.state.releaseDate.valueOf();
       const movieData = { title, description, poster, releaseDate, trailerUrl, genres };
       if (!posterUrl)
@@ -111,7 +111,7 @@ export default class MovieForm extends React.Component {
 
    render() {
       return (
-         <form className="form itemsBackground" onSubmit={this.onSubmit}>
+         <form className="form" onSubmit={this.onSubmit}>
 
             {
                this.state.error &&
@@ -135,21 +135,33 @@ export default class MovieForm extends React.Component {
                initGenres={this.state.genres}
             />
 
-            <Poster url={this.state.posterUrl} />
+            <div className="selectPoster">
+               <Poster url={this.state.posterUrl} />
 
-            <input
-               type="file"
-               id="poster"
-               name="poster"
-               accept="image/png, image/jpeg, image/jpg"
-               onChange={this.onSelectPoster}
-            ></input>
+               <div className="uploadPosterButtons">
+                  <button htmlFor="poster-upload" className="button">
+                     <i class="fa fa-cloud-upload"></i> Upload poster
+                  </button>
 
-            <button
-               onClick={this.onRemovePoster}
-               disabled={!this.state.posterUrl}>
-               Remove poster
-            </button>
+                  <input
+                     type="file"
+                     id="poster-upload"
+                     name="poster"
+                     accept="image/png, image/jpeg, image/jpg"
+                     onChange={this.onSelectPoster}
+                  ></input>
+
+                  <button
+                     className="button button--cancel"
+                     onClick={this.onRemovePoster}
+                     disabled={!this.state.posterUrl}>
+                     Remove poster
+                  </button>
+               </div>
+            </div>
+
+
+          
 
 
             <SingleDatePicker

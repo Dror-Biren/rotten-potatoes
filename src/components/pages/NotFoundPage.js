@@ -1,5 +1,5 @@
 import React from 'react';
-import { history } from '../routers/AppRouter';
+import { history } from '../../routers/AppRouter';
 
 const NotFoundPage = () => (
    <div className="login-ui__container">

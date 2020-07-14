@@ -1,50 +1,33 @@
-.aaa {
-   border: 5px solid red;
-}
 
-.MuiChip-root {
-   font-size: 60px;
-   border: 5px solid red;
-   background-color: yellow;
-}
-
-.MuiChip-colorPrimary {
-   background-color: yellow;
-}
 
 .selectedGenresText {
-   font-size: 22px;
+   font-size: 20px;
    text-align: center;
 }
 
 .selectedGenresText-container {
-   /*
    @extend .text-input;
-   height: 70px;
-   margin: auto;
-   */
+   height: 85px;
+   margin:  5px;
    vertical-align: middle;
    display: flex;
    justify-content: center;
-   
 }
 
 
 #selectGenres {
    width: 600px;
-   height: 145px;
-   padding: 7px 22px 7px 7px;
+   padding: 7px 22px 9px 7px;
    background-color: var(--genres-selector-background);
-   /*
-   display: flex;
-   justify-items: center;
-   justify-content: start;
-   */
 }
 
 .selectGenres-container {
-   margin: 0 30px 0 30px;
+   margin: 20px 0 20px 0;
+   @media (min-width: 920px) {
+      margin: 0 50px 0 30px;
+   }
 }
+
 
 
 

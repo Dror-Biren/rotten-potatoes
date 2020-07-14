@@ -12,7 +12,7 @@ import fetchAppData from './actions/fetchAppData';
 import { login, logout } from './actions/user';
 import { deafultUser } from './appConsts';
 import database, { firebase } from './firebase/firebase';
-import LoadingPage from './components/LoadingPage';
+import LoadingPage from './components/pages/LoadingPage';
 import { addUser } from './actions/allUsers';
 
 

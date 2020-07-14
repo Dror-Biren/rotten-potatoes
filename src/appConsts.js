@@ -5,7 +5,7 @@ export const deafultUser = {
 }
 
 export const moviePramsMax = {
-   titleLength: 35,
+   titleLength: 24,
    descriptionLength: 800,
    posterBytes: 2000000,
    genresAmount: 4
@@ -17,7 +17,7 @@ export const maxNicknameLength = 13;
 
 //export const minMovieReleaseYear = 1960;
 const curYear = new Date().getFullYear();
-export const yearsRangeFilter = [1995, curYear];
+export const yearsRangeFilter = [2000, curYear];
 
 export const themesClassesNames = [
    "bright", 
@@ -48,3 +48,28 @@ export const avatarsUrls = [
    "https://firebasestorage.googleapis.com/v0/b/rotten-potatoes-3ad5b.appspot.com/o/avatars%2Favatar6.jpg?alt=media&token=7805881d-ea94-4b23-8367-f66a02f543d6"
 ]
 
+
+export const reducersActions = {
+   MOVIES: {
+      ADD: "a0",
+      REMOVE: "a1",
+      EDIT: "a2",
+      SET_ALL: "a3"
+   },
+   FILTERS: {
+      SET_SEARCH: "b0",
+      SET_SORT_BY: "b1",
+      SET_YEARS_RANGE: "b2",
+      SET_GENRES: "b3"
+   },
+   ALL_USERS: {
+      ADD: "c0",
+      EDIT: "c1",
+      SET_ALL: "c2"
+   },
+   USER: {
+      LOGIN: "d0",
+      LOGOUT: "d1",
+      SET_THEME_INDEX: "d2"
+   }
+}

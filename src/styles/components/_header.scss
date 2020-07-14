@@ -3,6 +3,7 @@
    color: var(--header-button-font);
    margin-right: 80px;
    transition: none;
+   transition: filter 0.5s;
    border-width: 2.5px;
    border-color: var(--header-button-border);
 }

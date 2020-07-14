@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
-import DashboardPage from '../components/DashboardPage';
-import AddMoviePage from '../components/AddMoviePage';
-import ViewMoviePage from '../components/ViewMoviePage';
-import NotFoundPage from '../components/NotFoundPage';
-import LoginPage from '../components/LoginPage';
+import DashboardPage from '../components/pages/DashboardPage';
+import AddMoviePage from '../components/pages/AddMoviePage';
+import ViewMoviePage from '../components/pages/ViewMoviePage';
+import NotFoundPage from '../components/pages/NotFoundPage';
+import LoginPage from '../components/pages/LoginPage';
 import SitePage from './SitePage';
 import { themesClassesNames } from './../appConsts';
 

@@ -1,3 +1,5 @@
+import { reducersActions } from '../appConsts';
+const { LOGIN, LOGOUT, SET_THEME_INDEX } = reducersActions.USER;
 
 const userReducerDefaultState = {
    themeIndex: 0
@@ -5,14 +7,14 @@ const userReducerDefaultState = {
 
 export default (state = userReducerDefaultState, action) => {
    switch (action.type) {
-      case 'LOGIN':
+      case LOGIN:
          return {
             ...state,
             ...action.user
          };
-      case 'LOGOUT':
+      case LOGOUT:
          return userReducerDefaultState;
-      case 'SET_THEME_INDEX':
+      case SET_THEME_INDEX:
          return {
             ...state,
             themeIndex: action.themeIndex

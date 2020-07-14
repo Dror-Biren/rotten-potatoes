@@ -1,4 +1,5 @@
 .button {
+  @extend button;
   background: #1c88bf;
   border: none;
   color: rgb(255, 255, 255);
@@ -11,10 +12,12 @@
 }
 
 .button--cancel {
+   @extend button;
   background: #888;
 }
 
 .button--logOut {
+   @extend button;
    background: rgb(163, 147, 147);
    padding-top: 6px;
 
@@ -32,6 +35,7 @@
 }
 
 .button--add-movie {
+   @extend button;
    border-radius: 30%;
    background-color: var(--add-movie-background);
    width: 43px;
@@ -57,10 +61,15 @@
 
 .button--guest {
    background-color: rgb(48, 48, 155);
+
+   &:hover {
+      filter: hue-rotate(8deg);
+   }
 }
 
 
 .button--go-back {
+   @extend button;
    position: absolute;
    right: 7%;
    cursor: pointer;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { history } from '../routers/AppRouter';
+import { history } from '../../routers/AppRouter';
 import { Redirect } from 'react-router-dom';
 
-import { startLogin } from '../actions/user';
-import ThemeSwitch from './ThemeSwitch';
-import store from '../store/configureStore';
+import { startLogin } from '../../actions/user';
+import ThemeSwitch from '../header/ThemeSwitch';
+import store from '../../store/configureStore';
 
 
 const goToDashboardPage = () => {

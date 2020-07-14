@@ -10,32 +10,38 @@
 }
 */
 
+.selectPoster {
+   display: flex;
+}
+
 .poster {
-   height: 250px;
-   width: 220px;
+   height: 290px;
+   width: 250px;
    background-color: rgb(156, 90, 90);
 }
 
-.rating {
-   width: 220px;
-   height: 100px;
-   border: 0.5px solid black;
-   padding-left: 15px;
-   align-items: center;
-   text-align: center;
-
-   p {
-      margin-top: -12px;
-   }
-
-   #notRatedYet {
-      font-size: 13px;
-   }
+input[type="file"] {
+   display: none;
 }
 
-.staticRating {
+.custom-file-upload {
+   border: 1px solid #ccc;
+   display: inline-block;
+   padding: 6px 12px;
+   cursor: pointer;
+}
+
+.uploadPosterButtons {
    display: flex;
-   p {
-      margin-left: 16px;
+   flex-direction: column;
+   justify-content: space-around;
+   margin-left: 30px;
+
+   .button {
+      width: 120px;
+      height: 100px; 
    }
 }
+
+
+

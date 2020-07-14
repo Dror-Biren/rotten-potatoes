@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import MovieListItem from './MovieListItem';
-import selectMovies from '../selectors/movies';
+import selectMovies from '../../selectors/movies';
 
 export const MoviesList = (props) => {
    const Movies = props.movies.map(movie =>

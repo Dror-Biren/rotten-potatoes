@@ -1,10 +1,11 @@
-// All users Reducer
+import { reducersActions } from '../appConsts';
+const { ADD, EDIT, SET_ALL } = reducersActions.ALL_USERS;
 
 const allUsersDefaultState = {};
 
 export default (state = allUsersDefaultState, action) => {
    switch (action.type) {
-      case 'ADD_USER': {
+      case ADD: {
          const { user, uid } = action;
          return {
             ...state,
@@ -12,7 +13,7 @@ export default (state = allUsersDefaultState, action) => {
          };
       }
       
-      case 'EDIT_USER':
+      case EDIT:
          const { updates, uid } = action;
          const updatedUser = {
             ...state[uid],
@@ -23,7 +24,7 @@ export default (state = allUsersDefaultState, action) => {
             [uid]: updatedUser
          };
 
-      case 'SET_USERS':
+      case SET_ALL:
          return action.users;
 
       default:

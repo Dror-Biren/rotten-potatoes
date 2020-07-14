@@ -1,11 +1,13 @@
 //import uuid from 'uuid';
 import database from '../firebase/firebase';
 import { uploadPoster } from "../firebase/posters";
+import { reducersActions } from '../appConsts';
+const { ADD, EDIT, SET_ALL, REMOVE } = reducersActions.MOVIES;
 
 
-// ADD_MOVIE
+
 export const addMovie = (movie) => ({
-   type: 'ADD_MOVIE',
+   type: ADD,
    movie
 });
 
@@ -69,7 +71,7 @@ function editMovieInDatabase(updates, id, dispatch, newRater) {
 
 // EDIT_MOVIE
 export const editMovie = (id, updates, newRater) => ({
-   type: 'EDIT_MOVIE',
+   type: EDIT,
    id,
    updates,
    newRater
@@ -119,7 +121,7 @@ export const updateMovieRating = (movie, newRatingVote, comment) => {
 
 // REMOVE_MOVIE
 export const removeMovie = ({ id } = {}) => ({
-   type: 'REMOVE_MOVIE',
+   type: REMOVE,
    id
 });
 
@@ -137,7 +139,7 @@ export const startRemoveMovie = ({ id } = {}) => {
 
 // SET_MOVIES
 export const setMovies = (movies) => ({
-   type: 'SET_MOVIES',
+   type: SET_ALL,
    movies
 });
 

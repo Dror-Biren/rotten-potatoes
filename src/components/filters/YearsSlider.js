@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 
-import { setYearsRangeFilter } from '../actions/filters';
-import { yearsRangeFilter } from '../appConsts';
+import { setYearsRangeFilter } from '../../actions/filters';
+import { yearsRangeFilter } from '../../appConsts';
 
 
 const useStyles = makeStyles({
@@ -24,7 +24,7 @@ const CustomSlider = withStyles({
      width: 24,
      backgroundColor: '#fff',
      border: '2px solid currentColor',
-     marginTop: -8,
+     marginTop: -5,
      marginLeft: -12,
      '&:focus, &:hover, &$active': {
        boxShadow: 'inherit',
@@ -35,11 +35,11 @@ const CustomSlider = withStyles({
      left: 'calc(-50% + 4px)',
    },
    track: {
-     height: 8,
+     height: 13,
      borderRadius: 4,
    },
    rail: {
-     height: 8,
+     height: 13,
      borderRadius: 4,
    },
  })(Slider);
@@ -59,9 +59,9 @@ export function YearsSlider(props) {
   /*classes.root*/
   return (
     <div className="yearsSlider-container">
-      <h2 className="yearsSlider-title">
+      <h1 className="yearsSlider-title">
          years
-      </h2>
+      </h1>
       {
       <CustomSlider
         min={yearsRangeFilter[0]}

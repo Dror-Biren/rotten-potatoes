@@ -2,8 +2,8 @@ import React from "react";
 import Popup from "reactjs-popup";
 import { connect } from 'react-redux';
 
-import AccountPopUp from './AccountPopUp';
-import { avatarsUrls } from './../appConsts';
+import AccountPopUp from '../popUps/AccountPopUp';
+import { avatarsUrls } from '../../appConsts';
 
 export class AccountButton extends React.Component {
    constructor(props) {
@@ -49,27 +49,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(AccountButton);
-
-
-/*
-<div onClick={this.openAccountPopUp}>
-               <img className="avatar" src={avatarsUrls[avatarIndex]}/>
-
-               <button className="button header--button">
-                  {nickname}
-               </button>
-            </div>
-
-
-const triggerButton = (
-   <button className="button header--button">
-      my account
-   </button>
-);
-
-export const AccountPopUp = ({ startLogout }) => (
-   <Popup trigger={triggerButton} modal>
-      {(close) => popUpContent(close, startLogout)}
-   </Popup>
-);
-*/

@@ -1,7 +1,9 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
+import { reducersActions } from '../appConsts';
+const { LOGIN, LOGOUT, SET_THEME_INDEX } = reducersActions.USER;
 
 export const login = (user) => ({
-   type: 'LOGIN',
+   type: LOGIN,
    user
 });
 
@@ -14,7 +16,7 @@ export const startLogin = (callback = emptyFunc) => {
 };
 
 export const logout = () => ({
-   type: 'LOGOUT'
+   type: LOGOUT
 });
 
 export const startLogout = () => {
@@ -23,6 +25,11 @@ export const startLogout = () => {
       return firebase.auth().signOut();
    };
 };
+
+export const setThemeIndex = (themeIndex) => ({
+   type: SET_THEME_INDEX,
+   themeIndex
+});
 
 /*
 export const startSetThemeIndex = (themeIndex) => {
@@ -35,7 +42,4 @@ export const startSetThemeIndex = (themeIndex) => {
 };
 */
 
-export const setThemeIndex = (themeIndex) => ({
-   type: 'SET_THEME_INDEX',
-   themeIndex
-});
+

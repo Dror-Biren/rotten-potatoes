@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import SelectGenres from './SelectGenres';
 import YearsSlider from './YearsSlider';
-import { movieGenres } from '../appConsts';
-import { setTextFilter, setSortBy, setGenresfilter } from '../actions/filters';
+import { movieGenres } from '../../appConsts';
+import { setTextFilter, setSortBy, setGenresfilter } from '../../actions/filters';
 
 
 export class MovieListFilters extends React.Component {
@@ -27,8 +27,6 @@ export class MovieListFilters extends React.Component {
 
       return (
          <div className="page-margin itemsBackground filters">
-            <div className="input-group">
-
                <div className="input-group__item small-sorters">
                   <input
                      type="text"
@@ -54,11 +52,11 @@ export class MovieListFilters extends React.Component {
                <SelectGenres
                   onGenresChanged={this.onGenresChanged}
                   initGenres={movieGenres}
+                  className="selectGenres-container"
                />
 
 
-               <YearsSlider />
-            </div>
+               <YearsSlider />     
          </div>
       );
    }

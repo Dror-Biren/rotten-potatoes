@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MovieForm from './MovieForm';
-import { startAddMovie } from '../actions/movies';
+import MovieForm from '../moviesInfo/MovieForm';
+import { startAddMovie } from '../../actions/movies';
 
 export class AddMoviePage extends React.Component {
    returnToMainPage = () => {
@@ -17,10 +17,9 @@ export class AddMoviePage extends React.Component {
       return (
          <div>
             <div className="sub-header">
-               
-                  <h2 className="sub-header__title">
-                     Add a new movie to the site
-                  </h2>
+               <h2 className="sub-header__title">
+                  Add a new movie to the site
+               </h2>
                
                <img
                   src="/images/goBack5.png"
@@ -28,10 +27,8 @@ export class AddMoviePage extends React.Component {
                   onClick={this.returnToMainPage}>
                </img>
             </div>
-            <div className="page-margin">
-               <MovieForm
-                  onSubmit={this.onSubmit}
-               />
+            <div className="page-margin page-content-padding moviePage-content">
+               <MovieForm onSubmit={this.onSubmit}/>
             </div>
          </div>
       );

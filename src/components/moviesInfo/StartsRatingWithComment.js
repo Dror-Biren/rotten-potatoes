@@ -2,9 +2,9 @@ import React from "react";
 import Popup from "reactjs-popup";
 import { connect } from 'react-redux';
 
-import { updateMovieRating } from '../actions/movies';
+import { updateMovieRating } from '../../actions/movies';
 import StarsRating from './StarsRating';
-import CommentPopUp from './CommentPopUp';
+import CommentPopUp from '../popUps/CommentPopUp';
 
 class StartsRatingWithComment extends React.Component {
    constructor(props) {
@@ -33,7 +33,7 @@ class StartsRatingWithComment extends React.Component {
 
    render() {
       return (
-         <div>
+         <div className={this.props.className}>
             <StarsRating
                handleRatingVote={this.handleRatingVote}
                movie={this.props.movie}

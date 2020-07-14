@@ -2,11 +2,11 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-import { startLogout } from '../actions/user';
-import { startEditUser } from '../actions/allUsers';
+import { startLogout } from '../../actions/user';
+import { startEditUser } from '../../actions/allUsers';
 
-import { history } from '../routers/AppRouter';
-import { maxNicknameLength } from '../appConsts';
+import { history } from '../../routers/AppRouter';
+import { maxNicknameLength } from '../../appConsts';
 import { SelectAvatar } from './SelectAvatar'
 
 export class AccountPopUp extends React.Component {

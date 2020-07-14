@@ -1,20 +1,20 @@
-// Expenses Reducer
+import { reducersActions } from '../appConsts';
+const { ADD, EDIT, SET_ALL, REMOVE } = reducersActions.MOVIES;
 
 const moviesReducerDefaultState = [];
-
 export default (state = moviesReducerDefaultState, action) => {
    switch (action.type) {
-      case 'ADD_MOVIE':
+      case ADD:
          return [
             ...state,
             action.movie
          ];
 
-      case 'REMOVE_MOVIE':
+      case REMOVE:
          const isDiffrentMovie = ({ id }) => id !== action.id;
          return state.filter(isDiffrentMovie);
 
-      case 'EDIT_MOVIE':
+      case EDIT:
          const getEditedMovie = (movie) => {
             if (action.newRater) {
                const { key, data } = action.newRater;
@@ -32,9 +32,9 @@ export default (state = moviesReducerDefaultState, action) => {
             if (movie.id === action.id)
                return getEditedMovie(movie);
             return movie;
-         });     
+         });
 
-      case 'SET_MOVIES':
+      case SET_ALL:
          return action.movies;
 
       default:

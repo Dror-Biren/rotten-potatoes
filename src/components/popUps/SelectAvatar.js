@@ -1,5 +1,5 @@
 import React from "react";
-import { avatarsUrls } from './../appConsts';
+import { avatarsUrls } from '../../appConsts';
 
 //import avatar1 from "./avatar1.jpg";
 //const avatar1 = require('./avatar1.jpg')

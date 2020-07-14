@@ -26,6 +26,21 @@ body {
    margin-left: 10%;
    margin-right: 5%;
  }
+
+ .page-content-padding {
+   padding: 28px;
+ }
+
+ .moviePage-content {
+   width: 830px;
+   border: 2px solid gray;
+   background-color: var(--items-background);
+   transition: none;
+
+   @media (max-width: 930px) {
+      width: 550px;
+   }
+ }
  
 
 .itemsBackground {
@@ -41,7 +56,7 @@ button {
   cursor: pointer;
 
   &:hover {
-     font-weight: 600;
+   filter:hue-rotate(15deg) invert(11%);
   }
 }
 

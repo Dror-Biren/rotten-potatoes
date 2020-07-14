@@ -1,11 +1,10 @@
 import React from 'react';
 import moment from 'moment';
 
-
-import Poster from './Poster';
-import StartsRatingWithComment from './StartsRatingWithComment';
-import YoutubeVideo from './YoutubeVideo';
-import MovieReviews from './MovieReviews';
+import Poster from '../moviesInfo/Poster';
+import StartsRatingWithComment from '../moviesInfo/StartsRatingWithComment';
+import YoutubeVideo from '../moviesInfo/YoutubeVideo';
+import MovieReviews from '../moviesInfo/MovieReviews';
 
 export default class UserViewMovie extends React.Component {
 
@@ -22,9 +21,12 @@ export default class UserViewMovie extends React.Component {
       return (
          <div>
             <div className="posterAndTrailer">
-               <div>
+               <div className="movie-page-posterAndRating">
                   <Poster url={posterUrl} className="user-view--poster" />
-                  <StartsRatingWithComment movie={this.props.movie}/>
+                  <StartsRatingWithComment
+                     className={"movie-page-rating"} 
+                     movie={this.props.movie}
+                  />
                </div>
                <YoutubeVideo url={trailerUrl} />
             </div>
@@ -33,7 +35,9 @@ export default class UserViewMovie extends React.Component {
 
             <div className="info info--oneLine">
                <h3>Release date:</h3>
-               <p>{moment(releaseDate).format('MMMM Do, YYYY')}</p>
+               <p>
+                  {moment(releaseDate).format('MMMM Do, YYYY')}
+               </p>
             </div>
 
             <MovieReviews reviews={raters}/>

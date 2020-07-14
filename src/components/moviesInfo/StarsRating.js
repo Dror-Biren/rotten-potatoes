@@ -16,7 +16,7 @@ export class StarsRating extends React.Component {
       const { movie, uid, handleRatingVote } = this.props;
       
       if (!uid) {
-         alert("Sorry, to rate movies you must first login ...");
+         alert("Sorry, only registered users can rate movies ...");
          return this.setState(() => ({ rating: movie.rating }));
       }
 
@@ -58,7 +58,7 @@ export class StarsRating extends React.Component {
                edit={true}
                value={roundRating}
                color1={'#B3B3B3'}
-               color2={'#ffd700'}
+               color2={'#EB9F2E'}
             />
             {
                ratingsAmount === 0 ? 

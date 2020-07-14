@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { startLogin } from '../actions/user';
+import { startLogin } from '../../actions/user';
 import ThemeSwitch from './ThemeSwitch';
 import AccountButton from './AccountButton';
 

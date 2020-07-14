@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Switch from "react-switch";
 
-import { setThemeIndex } from '../actions/user';
-import { startEditUser } from '../actions/allUsers';
+import { setThemeIndex } from '../../actions/user';
+import { startEditUser } from '../../actions/allUsers';
 
 export class ThemeSwitch extends React.Component {
    

@@ -1,15 +1,23 @@
 .yearsSlider-title {
    margin-top: 0;
    margin-bottom: 0;
-   color: var(--font-color);
+   font-weight: 100;
+   font-size: 27px;
+   letter-spacing: 1px;
+
+   color: var(--soft-font-color);
 }
 
 .MuiSlider-root {
    min-width: 200px;
 }
 
+.MuiSlider-thumb {
+   color: var(--years-slider-sign);
+}
+
 .MuiSlider-track {
-   color: var(--years-slider-background);
+   color: var(--years-slider-checked);
    width: 300px;
 }
 

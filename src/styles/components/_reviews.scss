@@ -1,10 +1,41 @@
+
 .reviews {
-   border: 1px solid gray;
+   margin-top: 20px;
+   color: var(--soft-font-color);
 }
 
 .review {
-   p {
-      opacity: 0.5;
-      margin-bottom: -10px;
-   }
+   background: var(--input-background);
+   margin-bottom: 15px;
+   padding: 5px 15px 0 13px;
+   border: 1px solid gray;
+   width: 450px;
+}
+
+.review-usernameAndRating {
+   //border: 1px solid red;
+   padding-top: 24px;
+   margin-left: 15px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.userSummery {
+   margin-top: -25px;
+   display: flex;
+   align-items: center;
+}
+
+.reviewContent {
+   padding-left: 10px;
+   margin-top: -5px;
+   margin-bottom: 9px;
+   font-size: 15px;
+   color: var(--font-color);
+}
+
+.usernameReview {
+   margin-bottom: -8px;
+   font-size: 20px;
 }

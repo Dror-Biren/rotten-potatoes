@@ -1,36 +1,38 @@
 .bright {
-   --site-background: url('/images/potatoes4.jpg');
+   --site-background: url('/images/potatoes5.png');
 
    --header-background: rgb(65, 49, 40);
    --header-background-hover: rgb(46, 36, 28);
    --header-button-background: rgb(141, 135, 120);
-   --sub-header-background: rgb(177, 160, 125);
+   --sub-header-background: rgb(190, 173, 139);
    
-   --genres-selector-background: rgb(180, 180, 180);
-   --years-slider-background: rgb(172, 199, 121);
-   --years-slider-rail: rgb(182, 182, 182);
+   --genres-selector-background: rgba(189, 173, 123, 0.5);
+   --years-slider-checked: rgb(214, 190, 123);
+   --years-slider-sign: rgb(204, 174, 120);
+   --years-slider-rail: rgb(151, 151, 151);
+   
 
-   --add-movie-background: rgb(110, 82, 69);
+
+   --add-movie-background: rgb(97, 70, 58);
    --add-movie-symbol: rgb(204, 199, 193);
 
    --popup-background: rgb(245, 233, 212);
-   --input-background: white;
-   --items-background: rgba(223, 220, 190, 0.94);
-   --items-background-hover: rgba(245, 244, 226, 1);
+   --input-background: rgb(255, 255, 255);
+   --items-background: rgb(243, 240, 224);
+   --items-background-hover: rgb(228, 224, 203);
    
-   --items-border: rgb(211, 210, 210);
+   --items-border: rgb(134, 134, 134);
+   --header-button-border: rgb(134, 124, 107);
+
 
 
    --font-color: rgb(34, 34, 34);
-   --soft-font-color: rgb(80, 80, 80);
+   --soft-font-color: rgb(95, 95, 95);
    --placeholder-color: rgb(175, 175, 175);
    --header-font: rgb(224, 230, 191);
    --header-font-hover: rgb(221, 219, 136);
    --header-button-font: rgb(236, 236, 224);
-   --or-text: rgb(221, 221, 221);
-   
-
-   --header-button-border: rgb(134, 124, 107);
+   --or-text: rgb(221, 221, 221); 
 }
 
 
@@ -42,31 +44,31 @@
    --header-button-background: rgb(75, 90, 104);
    --sub-header-background: rgb(61, 70, 83);
 
-   --genres-selector-background: rgb(37, 37, 37);
-   --years-slider-background: rgb(40, 87, 43);
-   --years-slider-rail: rgb(77, 76, 76);
+   --genres-selector-background: rgba(12, 12, 12, 0.5);
+   --years-slider-checked: rgb(40, 29, 143);
+   --years-slider-sign: rgb(53, 64, 165);
+   --years-slider-rail: rgb(107, 107, 107);
 
-   --add-movie-background: rgb(18, 32, 58);
+   --add-movie-background: rgb(15, 30, 56);
    --add-movie-symbol: rgb(150, 170, 195);
 
    --popup-background: rgb(80, 75, 69);
    --input-background: rgb(105, 105, 114);
-   --items-background: rgba(49, 49, 49, 0.92);
-   --items-background-hover: rgba(49, 49, 49, 1);
+   --items-background: rgb(46, 41, 37);
+   --items-background-hover: rgb(51, 51, 51);
 
-   --items-border: rgb(110, 109, 109);
+   --items-border: rgb(158, 158, 158);
+   --header-button-border: rgb(58, 63, 92);
+
 
 
    --font-color: rgb(219, 219, 219);
-   --soft-font-color: rgb(182, 182, 182);
+   --soft-font-color: rgb(185, 185, 185);
    --placeholder-color: rgb(177, 177, 177);
    --header-font: rgb(224, 230, 191);
    --header-font-hover: rgb(221, 219, 136);
    --header-button-font: rgb(191, 219, 236);
    --or-text: rgb(221, 221, 221);
-   
-
-   --header-button-border: rgb(58, 63, 92);
 }
 
 

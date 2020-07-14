@@ -1,21 +1,23 @@
+import { reducersActions } from '../appConsts';
+const { SET_GENRES,SET_SEARCH,SET_SORT_BY,SET_YEARS_RANGE} = reducersActions.FILTERS;
 
 export const setTextFilter = (text = '') => ({
-  type: 'SET_TEXT_FILTER',
+  type: SET_SEARCH,
   text
 });
 
 export const setSortBy = (sorter) => ({
-  type: 'SET_SORT_BY',
+  type: SET_SORT_BY,
   sorter
 });
 
 export const setYearsRangeFilter = (yearsRange) => ({
-   type: 'SET_YEARS_RANGE_FILTER',
+   type: SET_YEARS_RANGE,
    yearsRange
  });
 
 export const setGenresfilter = (genres) => ({
-   type: 'SET_GENRES_FILTER',
+   type: SET_GENRES,
    genres
 })
 

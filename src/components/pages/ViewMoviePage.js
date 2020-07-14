@@ -49,7 +49,7 @@ export class ViewMoviePage extends React.Component {
                   onClick={this.returnToMainPage}>
                </img>
             </div>
-            <div className="page-margin itemsBackground">
+            <div className="page-margin page-content-padding moviePage-content">
                {this.props.isAdmin ? adminContent : userContent}
             </div>
          </div>

@@ -10,7 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
 
 
-import { movieGenres } from '../appConsts'
+import { movieGenres } from '../../appConsts'
 const selectOptions = movieGenres;
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +44,7 @@ const MenuProps = {
 };
 
 
-export default function SelectGenres({ initGenres, onGenresChanged }) {
+export default function SelectGenres({ initGenres, onGenresChanged, className }) {
 
    const classes = useStyles();
    const [genres, setGenres] = React.useState(initGenres);
@@ -109,7 +109,7 @@ export default function SelectGenres({ initGenres, onGenresChanged }) {
    }
 
    return (
-      <div className="selectGenres-container">
+      <div className={className}>
          <FormControl className={classes.formControl}>
             <Select
                labelid="selectGenres"

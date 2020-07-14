@@ -4,15 +4,16 @@
 }
 */
 
+
 .posterAndTrailer {
    display: flex; 
    flex-direction: row;
 
-   div {
+   .movie-page-posterAndRating {
       margin-right: 30px;
    }
 
-   @media (max-width: $desktop-breakpoint) {
+   @media (max-width: 930px) {
       flex-direction: column;
       .rating {
          margin-bottom: 30px;
@@ -21,18 +22,19 @@
 }
 
 .info {
+   color: var(--soft-font-color);
    h3 {
-      font-size: 20px;
+      font-size: 23px;
    }
 
    p {
-      font-size: 13px;
+      font-size: 17px;
    }
 }
 
 .info--oneLine {
    h3 {
-      font-size: 13px;
+      font-size: 17px;
       margin-right: 10px;
    }
 
@@ -42,6 +44,8 @@
 }
 
 .info--mulLine {
+   width: 500px;
+   //font-size: 18px;
    h3 {
       margin-bottom: -10px;
    }

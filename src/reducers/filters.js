@@ -1,7 +1,5 @@
-
-// Filters Reducer
-
-import { movieGenres, yearsRangeFilter } from '../appConsts';
+import { reducersActions, movieGenres, yearsRangeFilter } from '../appConsts';
+const { SET_GENRES,SET_SEARCH,SET_SORT_BY,SET_YEARS_RANGE} = reducersActions.FILTERS;
 
 const filtersReducerDefaultState = {
    text: '',
@@ -13,25 +11,25 @@ const filtersReducerDefaultState = {
 export default (state = filtersReducerDefaultState, action) => {
    //console.log({action})
    switch (action.type) {
-      case 'SET_TEXT_FILTER':
+      case SET_SEARCH:
          return {
             ...state,
             text: action.text
          };
 
-      case 'SET_SORT_BY':
+      case SET_SORT_BY:
          return {
             ...state,
             sortBy: action.sorter
          };
 
-      case 'SET_YEARS_RANGE_FILTER':
+      case SET_YEARS_RANGE:
          return {
             ...state,
             yearsRange: action.yearsRange
          }
 
-      case 'SET_GENRES_FILTER':
+      case SET_GENRES:
          return {
             ...state,
             genres: action.genres

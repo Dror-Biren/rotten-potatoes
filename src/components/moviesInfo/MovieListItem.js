@@ -20,7 +20,7 @@ const MovieListItem = (movie) => {
       <div className="genresSummery">
          {genresPairs.map(
             (genrePair, index) => (
-               <p className="genreSummery" key={index}>
+               <p className="genresPair" key={index}>
                   {genrePair}
                </p>
             )

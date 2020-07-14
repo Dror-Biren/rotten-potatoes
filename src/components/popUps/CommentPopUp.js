@@ -1,7 +1,7 @@
 
 import React from "react";
 
-import { maxCommentLength } from '../appConsts';
+import { maxCommentLength } from '../../appConsts';
 
 
 export default class CommentPopUp extends React.Component {

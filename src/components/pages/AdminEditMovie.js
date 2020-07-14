@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import MovieForm from './MovieForm';
-import { startEditMovie, startRemoveMovie } from '../actions/movies';
+import MovieForm from '../moviesInfo/MovieForm';
+import { startEditMovie, startRemoveMovie } from '../../actions/movies';
 
 export class UserViewMovie extends React.Component {
    onSubmit = (movie) => {
