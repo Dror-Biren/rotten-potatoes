@@ -3,7 +3,7 @@ import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
 
-import Poster from './Poster';
+import PosterSelector from './PosterSelector';
 import SelectGenres from '../filters/SelectGenres';
 import { moviePramsMax } from '../../appConsts';
 //import MoviePopUp from './MoviePopUp';
@@ -135,43 +135,23 @@ export default class MovieForm extends React.Component {
                initGenres={this.state.genres}
             />
 
-            <div className="selectPoster">
-               <Poster url={this.state.posterUrl} />
+            <PosterSelector
+               onSelectPoster={this.onSelectPoster}
+               onRemovePoster={this.onRemovePoster}
+               posterUrl={this.state.posterUrl}
+               isRemoveButtonExist={this.state.posterUrl}
+            />  
 
-               <div className="uploadPosterButtons">
-                  <button htmlFor="poster-upload" className="button">
-                     <i class="fa fa-cloud-upload"></i> Upload poster
-                  </button>
-
-                  <input
-                     type="file"
-                     id="poster-upload"
-                     name="poster"
-                     accept="image/png, image/jpeg, image/jpg"
-                     onChange={this.onSelectPoster}
-                  ></input>
-
-                  <button
-                     className="button button--cancel"
-                     onClick={this.onRemovePoster}
-                     disabled={!this.state.posterUrl}>
-                     Remove poster
-                  </button>
-               </div>
+            <div className="datePicker">
+               <SingleDatePicker
+                  date={this.state.releaseDate}
+                  onDateChange={this.onDateChange}
+                  focused={this.state.calendarFocused}
+                  onFocusChange={this.onFocusChange}
+                  numberOfMonths={1}
+                  isOutsideRange={() => false}
+               />
             </div>
-
-
-          
-
-
-            <SingleDatePicker
-               date={this.state.releaseDate}
-               onDateChange={this.onDateChange}
-               focused={this.state.calendarFocused}
-               onFocusChange={this.onFocusChange}
-               numberOfMonths={1}
-               isOutsideRange={() => false}
-            />
 
             <textarea
                placeholder="Add a description for your movie (optional)"
