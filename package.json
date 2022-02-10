@@ -36,7 +36,7 @@
     "material-ui": "^0.20.2",
     "material-ui-slider": "^3.0.8",
     "moment": "2.18.1",
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "normalize.css": "7.0.0",
     "numeral": "2.0.6",
     "react": "^16.13.1",
